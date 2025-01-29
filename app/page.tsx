@@ -2,8 +2,9 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button } from "@/app/components/ui";
+import { Accordion, Button } from "@/app/components/ui";
 import { AIO, Glow } from "@/app/components/global";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -79,6 +80,32 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Features Section */}
+      <section className="py-20 bg-dark/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            How Lumina Works
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature, index) => (
+              <AIO
+                key={index}
+                show={true}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Glow className="p-6 text-center">
+                  <div className="text-4xl mb-4">{feature.icon}</div>
+                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                  <p className="text-gray-300">{feature.description}</p>
+                </Glow>
+              </AIO>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Benefits Section */}
       <section className="py-20">
         <div className="container mx-auto px-4">
@@ -99,6 +126,101 @@ export default function Home() {
                   <p className="text-gray-300">{benefit.description}</p>
                 </Glow>
               </AIO>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Demo Section */}
+      <section className="py-20 bg-dark">
+        <div className="container mx-auto px-4">
+          <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="relative h-[500px] rounded-2xl overflow-hidden">
+              <Image
+                src="/demo-image.jpg" // Add this image
+                alt="Lumina Demo"
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
+            </div>
+            <div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                Experience the Future
+              </h2>
+              <div className="space-y-6">
+                <p className="text-gray-300">
+                  Lumina's powerful AI technology enables seamless interaction
+                  with the world through advanced computer vision, voice
+                  recognition, and intuitive feedback systems.
+                </p>
+                <p className="text-gray-300">
+                  Whether you're navigating busy streets, attending classes, or
+                  connecting with friends, Lumina provides the support and
+                  confidence you need.
+                </p>
+                <Button variant="primary" size="lg">
+                  Watch Demo Video
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            What Our Users Say
+          </h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <AIO
+                key={index}
+                show={true}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <Glow className="p-6">
+                  <div className="flex items-center mb-4">
+                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                      <Image
+                        src={testimonial.avatar}
+                        alt={testimonial.name}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+                    <div className="ml-4">
+                      <h3 className="font-bold">{testimonial.name}</h3>
+                      <p className="text-gray-300 text-sm">
+                        {testimonial.role}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-gray-300">{testimonial.quote}</p>
+                </Glow>
+              </AIO>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-20 bg-dark/50">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+            Frequently Asked Questions
+          </h2>
+          <div className="max-w-3xl mx-auto space-y-6">
+            {faqs.map((faq, index) => (
+              <Accordion
+                key={index}
+                title={faq.question}
+                content={faq.answer}
+              />
             ))}
           </div>
         </div>
@@ -135,4 +257,93 @@ const benefits = [
     description:
       "In the classroom, Lumina ensures students with vision impairments have the tools they need to succeed.",
   },
+  {
+    title: "Fostering Social Connectivity",
+    description:
+      "Connect with your community through facial recognition and advanced navigation aids, building stronger relationships.",
+  },
+  {
+    title: "Breaking Down Barriers",
+    description:
+      "Complete everyday tasks confidently, from shopping to traveling, with enhanced autonomy and freedom.",
+  },
+  {
+    title: "AI Companionship",
+    description:
+      "Engage with Lumina through voice chat for guidance, reminders, or friendly conversation - your digital companion.",
+  },
+  {
+    title: "Call an Ally",
+    description:
+      "Connect instantly with trusted family or friends when you need additional support or guidance.",
+  },
+];
+
+const features = [
+  {
+    title: "Object Recognition",
+    description:
+      "Real-time scanning and identification of objects, people, and obstacles.",
+    icon: "🔍",
+  },
+  {
+    title: "Text-to-Speech",
+    description: "Instant reading of printed text, from books to street signs.",
+    icon: "📖",
+  },
+  {
+    title: "Voice Navigation",
+    description:
+      "Clear, precise voice guidance for indoor and outdoor navigation.",
+    icon: "🗺️",
+  },
+  {
+    title: "Social Recognition",
+    description:
+      "Advanced facial recognition to identify friends and acquaintances.",
+    icon: "👥",
+  },
+];
+
+const testimonials = [
+  {
+    name: "Sarah Johnson",
+    role: "Student",
+    quote:
+      "Lumina has transformed my university experience. I can now participate fully in classes and navigate campus independently.",
+    avatar: "/testimonials/sarah.jpg", // Add this image
+  },
+  {
+    name: "Michael Chen",
+    role: "Software Developer",
+    quote:
+      "As a developer with visual impairment, Lumina helps me read code and collaborate with my team effectively.",
+    avatar: "/testimonials/michael.jpg", // Add this image
+  },
+  {
+    name: "Emily Rodriguez",
+    role: "Teacher",
+    quote:
+      "The 'Call an Ally' feature gives me peace of mind, knowing help is just a button press away.",
+    avatar: "/testimonials/emily.jpg", // Add this image
+  },
+];
+
+const faqs = [
+  {
+    question: "How does Lumina work?",
+    answer:
+      "Lumina uses advanced AI and computer vision to analyze your surroundings and provide audio feedback through bone conduction technology. It can recognize objects, read text, and help with navigation.",
+  },
+  {
+    question: "Is Lumina water-resistant?",
+    answer:
+      "Yes, Lumina is designed to be weather-resistant and can handle light rain and splashes. However, it's not recommended for swimming or submersion.",
+  },
+  {
+    question: "What's the battery life?",
+    answer:
+      "Lumina typically lasts up to 8 hours on a single charge with normal use. The included charging case provides an additional 16 hours of battery life.",
+  },
+  // Add more FAQs...
 ];

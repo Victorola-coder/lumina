@@ -1,24 +1,12 @@
 import "./global.css";
 import { Toaster } from "sonner";
-import localFont from "next/font/local";
 import { AOS } from "./components/global";
-import { Montserrat } from "next/font/google";
+import { Raleway } from "next/font/google";
 import type { Metadata, Viewport } from "next";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
-const montserrat = Montserrat({
+const raleway = Raleway({
   subsets: ["latin"],
-  variable: "--font-montserrat",
+  variable: "--font-raleway",
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
@@ -31,12 +19,12 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
-  title: "nextjs template",
+  title: "Lumina",
   description:
-    "I fell in love with next.js, im trying to make a template for it also",
-  applicationName: "next Web Application",
-  authors: [{ name: "nextapp template", url: "https://domainname.host" }],
-  keywords: ["NextJs", "reactjs", "template", "typescript"],
+    "Empowering visually impaired individuals through innovative AI technology.",
+  applicationName: "Lumina",
+  authors: [{ name: "Lumina", url: "https://lumina.ai" }],
+  keywords: ["  Lumina", "AI", "technology", "visually impaired"],
   creator: "VickyJay",
   publisher: "VickyJay",
   generator: "Next.js",
@@ -91,9 +79,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${montserrat.className} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${raleway.className} antialiased`}>
         <Toaster richColors />
         <AOS />
         {children}

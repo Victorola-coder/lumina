@@ -4,245 +4,263 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Accordion, Button } from "@/app/components/ui";
 import { AIO, Glow } from "@/app/components/global";
+import { Navbar } from "./components/ui";
+import { useState } from "react";
+import WaitlistModal from "./components/ui/waitlist-modal";
 
 export default function Home() {
+  const [isWaitlistOpen, setIsWaitlistOpen] = useState(false);
+
+  const openWaitlist = () => setIsWaitlistOpen(true);
+  const closeWaitlist = () => setIsWaitlistOpen(false);
+
   return (
-    <main className="min-h-screen">
-      {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 z-0">
-          <Image
-            src="/hero-bg.jpg" // You'll need to add this image
-            alt="Background"
-            fill
-            className="object-cover opacity-50"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f0f0f]" />
-        </div>
-
-        <div className="container mx-auto px-4 z-10 text-center">
-          <motion.h1
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
-          >
-            Empowering Freedom Through Innovation
-          </motion.h1>
-
-          <motion.p
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
-          >
-            Lumina: AI-Powered Smart Glasses for Visually Impaired Individuals
-          </motion.p>
-
-          <Button variant="primary" size="lg" className="animate-float">
-            Join the Waitlist
-          </Button>
-        </div>
-      </section>
-
-      {/* About Section */}
-      <section className="py-20 bg-dark">
-        <div className="container mx-auto px-4">
-          <Glow className="p-8 md:p-12">
-            <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-              What Is Lumina?
-            </h2>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <p className="text-gray-300 mb-6">
-                  Lumina is an AI-powered smart glasses solution designed to
-                  empower individuals with visual impairments. By combining
-                  cutting-edge technology and user-centric design, Lumina
-                  enables users to navigate the world independently and
-                  experience life without limitations.
-                </p>
-                <p className="text-gray-300">
-                  More than just an assistive tool, Lumina is also a companion—a
-                  friend that understands you, interacts with you, and guides
-                  you.
-                </p>
-              </div>
-              <div className="relative h-[400px]">
-                <Image
-                  src="/about-image.jpg" // add thi image later on
-                  alt="Lumina Smart Glasses"
-                  fill
-                  className="object-cover rounded-2xl"
-                />
-              </div>
-            </div>
-          </Glow>
-        </div>
-      </section>
-
-      {/* Features Section */}
-      <section className="py-20 bg-dark/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            How Lumina Works
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {features.map((feature, index) => (
-              <AIO
-                key={index}
-                show={true}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Glow className="p-6 text-center">
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
-                  <p className="text-gray-300">{feature.description}</p>
-                </Glow>
-              </AIO>
-            ))}
+    <>
+      <Navbar />
+      <main className="min-h-screen">
+        {/* Hero Section */}
+        <section className="relative h-screen flex items-center justify-center overflow-hidden">
+          <div className="absolute inset-0 z-0">
+            <Image
+              src="/hero-bg.jpg" // You'll need to add this image
+              alt="Background"
+              fill
+              className="object-cover opacity-50"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0f0f0f]" />
           </div>
-        </div>
-      </section>
 
-      {/* Benefits Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Benefits of Lumina
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {benefits.map((benefit, index) => (
-              <AIO
-                key={index}
-                show={true}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Glow className="p-6">
-                  <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
-                  <p className="text-gray-300">{benefit.description}</p>
-                </Glow>
-              </AIO>
-            ))}
+          <div className="container mx-auto px-4 z-10 text-center">
+            <motion.h1
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+            >
+              Empowering Freedom Through Innovation
+            </motion.h1>
+
+            <motion.p
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="text-xl md:text-2xl text-gray-300 mb-8 max-w-3xl mx-auto"
+            >
+              Lumina: AI-Powered Smart Glasses for Visually Impaired Individuals
+            </motion.p>
+
+            <Button
+              variant="primary"
+              size="lg"
+              className="animate-float"
+              onClick={openWaitlist}
+            >
+              Join the Waitlist
+            </Button>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Demo Section */}
-      <section className="py-20 bg-dark">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <div className="relative h-[500px] rounded-2xl overflow-hidden">
-              <Image
-                src="/demo-image.jpg" // Add this image
-                alt="Lumina Demo"
-                fill
-                className="object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
-            </div>
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-8">
-                Experience the Future
+        {/* About Section */}
+        <section className="py-20 bg-dark">
+          <div className="container mx-auto px-4">
+            <Glow className="p-8 md:p-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
+                What Is Lumina?
               </h2>
-              <div className="space-y-6">
-                <p className="text-gray-300">
-                  Lumina's powerful AI technology enables seamless interaction
-                  with the world through advanced computer vision, voice
-                  recognition, and intuitive feedback systems.
-                </p>
-                <p className="text-gray-300">
-                  Whether you're navigating busy streets, attending classes, or
-                  connecting with friends, Lumina provides the support and
-                  confidence you need.
-                </p>
-                <Button variant="primary" size="lg">
-                  Watch Demo Video
-                </Button>
+              <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                  <p className="text-gray-300 mb-6">
+                    Lumina is an AI-powered smart glasses solution designed to
+                    empower individuals with visual impairments. By combining
+                    cutting-edge technology and user-centric design, Lumina
+                    enables users to navigate the world independently and
+                    experience life without limitations.
+                  </p>
+                  <p className="text-gray-300">
+                    More than just an assistive tool, Lumina is also a
+                    companion—a friend that understands you, interacts with you,
+                    and guides you.
+                  </p>
+                </div>
+                <div className="relative h-[400px]">
+                  <Image
+                    src="/about-image.jpg" // add thi image later on
+                    alt="Lumina Smart Glasses"
+                    fill
+                    className="object-cover rounded-2xl"
+                  />
+                </div>
+              </div>
+            </Glow>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="py-20 bg-dark/50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              How Lumina Works
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+              {features.map((feature, index) => (
+                <AIO
+                  key={index}
+                  show={true}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Glow className="p-6 text-center">
+                    <div className="text-4xl mb-4">{feature.icon}</div>
+                    <h3 className="text-xl font-bold mb-4">{feature.title}</h3>
+                    <p className="text-gray-300">{feature.description}</p>
+                  </Glow>
+                </AIO>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Benefits Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Benefits of Lumina
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {benefits.map((benefit, index) => (
+                <AIO
+                  key={index}
+                  show={true}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Glow className="p-6">
+                    <h3 className="text-xl font-bold mb-4">{benefit.title}</h3>
+                    <p className="text-gray-300">{benefit.description}</p>
+                  </Glow>
+                </AIO>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Demo Section */}
+        <section className="py-20 bg-dark">
+          <div className="container mx-auto px-4">
+            <div className="grid md:grid-cols-2 gap-12 items-center">
+              <div className="relative h-[500px] rounded-2xl overflow-hidden">
+                <Image
+                  src="/demo-image.jpg" // Add this image
+                  alt="Lumina Demo"
+                  fill
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-dark/80 to-transparent" />
+              </div>
+              <div>
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                  Experience the Future
+                </h2>
+                <div className="space-y-6">
+                  <p className="text-gray-300">
+                    Lumina's powerful AI technology enables seamless interaction
+                    with the world through advanced computer vision, voice
+                    recognition, and intuitive feedback systems.
+                  </p>
+                  <p className="text-gray-300">
+                    Whether you're navigating busy streets, attending classes,
+                    or connecting with friends, Lumina provides the support and
+                    confidence you need.
+                  </p>
+                  <Button variant="primary" size="lg">
+                    Watch Demo Video
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Testimonials Section */}
-      <section className="py-20">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            What Our Users Say
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <AIO
-                key={index}
-                show={true}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <Glow className="p-6">
-                  <div className="flex items-center mb-4">
-                    <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                      <Image
-                        src={testimonial.avatar}
-                        alt={testimonial.name}
-                        fill
-                        className="object-cover"
-                      />
+        {/* Testimonials Section */}
+        <section className="py-20">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              What Our Users Say
+            </h2>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {testimonials.map((testimonial, index) => (
+                <AIO
+                  key={index}
+                  show={true}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.1 }}
+                >
+                  <Glow className="p-6">
+                    <div className="flex items-center mb-4">
+                      <div className="relative w-12 h-12 rounded-full overflow-hidden">
+                        <Image
+                          src={testimonial.avatar}
+                          alt={testimonial.name}
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                      <div className="ml-4">
+                        <h3 className="font-bold">{testimonial.name}</h3>
+                        <p className="text-gray-300 text-sm">
+                          {testimonial.role}
+                        </p>
+                      </div>
                     </div>
-                    <div className="ml-4">
-                      <h3 className="font-bold">{testimonial.name}</h3>
-                      <p className="text-gray-300 text-sm">
-                        {testimonial.role}
-                      </p>
-                    </div>
-                  </div>
-                  <p className="text-gray-300">{testimonial.quote}</p>
-                </Glow>
-              </AIO>
-            ))}
+                    <p className="text-gray-300">{testimonial.quote}</p>
+                  </Glow>
+                </AIO>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-dark/50">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Frequently Asked Questions
-          </h2>
-          <div className="max-w-3xl mx-auto space-y-6">
-            {faqs.map((faq, index) => (
-              <Accordion
-                key={index}
-                title={faq.question}
-                content={faq.answer}
-              />
-            ))}
+        {/* FAQ Section */}
+        <section className="py-20 bg-dark/50">
+          <div className="container mx-auto px-4">
+            <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+              Frequently Asked Questions
+            </h2>
+            <div className="max-w-3xl mx-auto space-y-6">
+              {faqs.map((faq, index) => (
+                <Accordion
+                  key={index}
+                  title={faq.question}
+                  content={faq.answer}
+                />
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* CTA Section */}
-      <section className="py-20 bg-primary/10">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Embrace a Life of Freedom?
-          </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join the waitlist to be the first to experience Lumina, a
-            groundbreaking assistive technology for visually impaired
-            individuals.
-          </p>
-          <Button variant="primary" size="lg">
-            Sign Up Now
-          </Button>
-        </div>
-      </section>
-    </main>
+        {/* CTA Section */}
+        <section className="py-20 bg-primary/10">
+          <div className="container mx-auto px-4 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6">
+              Ready to Embrace a Life of Freedom?
+            </h2>
+            <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
+              Join the waitlist to be the first to experience Lumina, a
+              groundbreaking assistive technology for visually impaired
+              individuals.
+            </p>
+            <Button variant="primary" size="lg" onClick={openWaitlist}>
+              Sign Up Now
+            </Button>
+          </div>
+        </section>
+      </main>
+
+      <WaitlistModal isOpen={isWaitlistOpen} onClose={closeWaitlist} />
+    </>
   );
 }
 

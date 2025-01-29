@@ -10,3 +10,6 @@ export { default as Select } from "./select";
 export { default as Skeleton } from "./skeleton";
 export { default as TextArea } from "./textArea";
 export { default as Accordion } from "./accordion";
+export { default as Navbar } from "./navbar";
+export { default as Footer } from "./footer";
+export { default as WaitlistModal } from "./waitlist-modal";

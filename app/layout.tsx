@@ -35,39 +35,39 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: "website",
-    url: "https://domainname.host",
-    title: "Nextjs template",
-    siteName: "nextapp template",
+    url: "https://lumina.ai",
+    title: "Lumina",
+    siteName: "Lumina",
     locale: "en_US",
     images: [
       {
-        url: "linktoopengraphimage.cdn",
+        url: "https://lumina.ai/opengraph.png",
         width: 1200,
         height: 630,
-        alt: "next OG Image",
+        alt: "Lumina OG Image",
       },
     ],
   },
   twitter: {
-    site: "nextapp",
-    creator: "socialmediahandle",
+    site: "lumina.ai",
+    creator: "@lumnina_ai",
     title:
-      "nextapp template - I fell in love with next.js, im trying to make a template for it tooo",
+      "Lumina - Empowering visually impaired individuals through innovative AI technology.",
     description:
-      "I fell in love with next.js, im trying to make a template for it too",
+      "Empowering visually impaired individuals through innovative AI technology.",
     card: "summary_large_image",
-    images: ["linktoopengraph.com"],
+    images: ["https://lumina.ai/opengraph.png"],
   },
   appleWebApp: {
     capable: true,
-    title: "nextapp template",
+    title: "Lumina",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
     telephone: false,
   },
   abstract:
-    "I fell in love with next.js, im trying to make a template for it tooo",
+    "Empowering visually impaired individuals through innovative AI technology.",
   category: "Social",
   classification: "Social",
 };

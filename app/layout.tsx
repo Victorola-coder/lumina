@@ -1,13 +1,16 @@
 import "./global.css";
-import { Toaster } from "sonner";
-import { AOS } from "./components/global";
-import { Raleway } from "next/font/google";
+import { Inter, Space_Grotesk } from "next/font/google";
+import localFont from "next/font/local";
 import type { Metadata, Viewport } from "next";
 
-const raleway = Raleway({
+const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-raleway",
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  variable: "--font-inter",
+});
+
+const clashDisplay = localFont({
+  src: "./fonts/clash/ClashDisplay-Medium.otf",
+  variable: "--font-clash-display",
 });
 
 export const viewport: Viewport = {
@@ -19,14 +22,20 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
-  title: "Lumina",
+  title: "Lumina - AI-Powered Smart Glasses",
   description:
     "Empowering visually impaired individuals through innovative AI technology.",
   applicationName: "Lumina",
-  authors: [{ name: "Lumina", url: "https://lumina.ai" }],
-  keywords: ["  Lumina", "AI", "technology", "visually impaired"],
-  creator: "VickyJay",
-  publisher: "VickyJay",
+  authors: [{ name: "Lumina Team" }],
+  keywords: [
+    "AI",
+    "Smart Glasses",
+    "Visual Assistance",
+    "Accessibility",
+    "Technology",
+  ],
+  creator: "Lumina",
+  publisher: "Lumina",
   generator: "Next.js",
   referrer: "origin",
   robots: {
@@ -64,6 +73,8 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent",
   },
   formatDetection: {
+    email: false,
+    address: false,
     telephone: false,
   },
   abstract:
@@ -74,15 +85,19 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
-      <body className={`${raleway.className} antialiased`}>
-        <Toaster richColors />
-        <AOS />
-        {children}
+    <html lang="en" className={`${inter.variable} ${clashDisplay.variable}`}>
+      <head>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0A0A0A" />
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body className="min-h-screen bg-dark text-light antialiased">
+        <main className="relative flex min-h-screen flex-col">{children}</main>
       </body>
     </html>
   );

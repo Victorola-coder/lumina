@@ -8,79 +8,79 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      fontFamily: {
-        // if you are using variable and want to use more than one fonts for your webapp,you could define it here. like i did 
-        geistSans: ["var(--font-geist-sans)"],
+      colors: {
+        primary: "#00FF94", // Natura Umana's accent green
+        dark: {
+          DEFAULT: "#0A0A0A",
+          50: "#1A1A1A",
+          100: "#151515",
+          200: "#121212",
+          300: "#0F0F0F",
+          400: "#0C0C0C",
+          500: "#0A0A0A",
+          600: "#080808",
+          700: "#050505",
+          800: "#030303",
+          900: "#000000",
+        },
+        light: {
+          DEFAULT: "#FFFFFF",
+          50: "#F5F5F5",
+          100: "#EBEBEB",
+          200: "#D6D6D6",
+          300: "#C2C2C2",
+          400: "#ADADAD",
+        },
       },
-      keyframes: {
-        "fade-effect": {
-          "0%": {
-            transform: "scale(0.9)",
-            opacity: "0",
-          },
-          "100%": {
-            transform: "scale(1)",
-            opacity: "1",
-          },
-        },
-
-        "slide-up": {
-          "0%": {
-            transform: "translateY(100%)",
-            opacity: "0",
-          },
-          "100%": {
-            transform: "translateY(0)",
-            opacity: "1",
-          },
-        },
-        "slide-down": {
-          "0%": {
-            transform: "translateY(-100%)",
-            opacity: "0",
-          },
-          "100%": {
-            transform: "translateY(0)",
-            opacity: "1",
-          },
-        },
-        loader: {
-          "0%": {
-            opacity: "0.2",
-          },
-          "100%": {
-            opacity: "1",
-          },
-        },
-        spin: {},
+      fontFamily: {
+        sans: ["var(--font-inter)", "system-ui", "sans-serif"],
+        display: ["var(--font-clash-display)", "system-ui", "sans-serif"],
       },
       animation: {
-        "fade-in": "fade-effect 300ms linear",
-        "slide-down": "slide-down 300ms linear forwards",
-        "slide-up": "slide-up 300ms linear forwards",
-        "rotate-clockwise": "rotate-clockwise 1s infinite linear",
-        "loader-opacity": "loader 1s ease-in-out alternate infinite",
-        "spin-slow": "spin 20s linear infinite",
+        float: "float 6s ease-in-out infinite",
+        "gradient-x": "gradient-x 15s ease infinite",
+        "gradient-y": "gradient-y 15s ease infinite",
+        "gradient-xy": "gradient-xy 15s ease infinite",
       },
-      colors: {
-        primary: {
-          DEFAULT: "#8066FF",
-          100: "#6248E1",
-          200: "#8066FF",
+      keyframes: {
+        float: {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-20px)" },
         },
-        dark: {
-          DEFAULT: "#141517",
-          100: "#414141",
-          200: "#121212",
-          300: "#676B71",
+        "gradient-y": {
+          "0%, 100%": {
+            "background-size": "400% 400%",
+            "background-position": "center top",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "center center",
+          },
         },
-        main: {
-          DEFAULT: "#E1DEF0",
-          100: "#F3EFFD",
+        "gradient-x": {
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
+        },
+        "gradient-xy": {
+          "0%, 100%": {
+            "background-size": "400% 400%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
         },
       },
     },
   },
   plugins: [],
 };
+
 export default config;

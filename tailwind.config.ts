@@ -9,7 +9,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#00FF94", // Natura Umana's accent green
+        primary: "#0d6bf0", // Changed from Natura Umana's accent green to blue
         dark: {
           DEFAULT: "#0A0A0A",
           50: "#1A1A1A",

@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { Modal, Input, Button } from ".";
+import { Modal, Input } from ".";
+import { Button } from "./button";
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -51,7 +52,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
           }
           className="w-full min-h-[100px] bg-dark/50 rounded-lg p-3 text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-primary"
         />
-        <Button variant="primary" className="w-full" type="submit">
+        <Button className="w-full" type="submit">
           Join Waitlist
         </Button>
       </form>

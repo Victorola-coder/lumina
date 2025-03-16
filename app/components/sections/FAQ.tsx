@@ -3,34 +3,39 @@ import { Accordion } from "../ui/accordion";
 
 const faqItems = [
   {
-    title: "How does Lumina work?",
+    title: "What are LensX AI Allies?",
     content:
-      "Lumina uses advanced AI and computer vision to analyze your surroundings and provide audio feedback through bone conduction technology. It can recognize objects, read text, and help with navigation in real-time.",
+      "LensX introduces personalized AI Allies that provide real-time assistance through natural voice interactions. Our ecosystem includes Vera (Vision Ally) for real-time guidance and vision support, Aria (Emotional Ally) for emotional support and mental well-being, and Nova (Learning Ally) for educational support. Each AI Ally is designed to become an integral part of users' everyday lives.",
   },
   {
-    title: "What's the battery life?",
+    title: "How much does LensX cost?",
     content:
-      "Lumina typically lasts up to 8 hours on a single charge with normal use. The included charging case provides an additional 16 hours of battery life, ensuring you stay connected throughout your day.",
+      "LensX Glasses are priced between $490 to $600, depending on the model and features. We also offer a subscription service at $20/month for access to AI Ally features and software updates. We work with healthcare providers and accessibility organizations to provide subsidies for eligible users.",
   },
   {
-    title: "Is Lumina water-resistant?",
+    title: "How does the Trusted Human Allies feature work?",
     content:
-      "Yes, Lumina is designed to be weather-resistant with an IPX5 rating. It can handle light rain and splashes, making it suitable for everyday use in various weather conditions. However, it's not recommended for swimming or submersion.",
+      "LensX enables seamless communication with trusted individuals like family, friends, or caregivers. Users can quickly call or message their trusted allies, share their real-time location, and provide audio context to help allies provide effective assistance when needed.",
   },
   {
-    title: "How does the AI assistance work?",
+    title: "Is LensX environmentally friendly?",
     content:
-      "Lumina's AI system processes visual information in real-time using on-device machine learning models. It can identify objects, read text, recognize faces, and provide spatial awareness through natural voice interactions.",
-  },
-  {
-    title: "Is my privacy protected?",
-    content:
-      "Absolutely. Privacy is our top priority. All processing happens on-device, and personal data never leaves your device without your explicit consent. You have complete control over what information is stored and shared.",
+      "Yes, sustainability is a core value of LensX. Our glasses are crafted from recycled PET plastic, making them eco-friendly. The design prioritizes durability and comfort while minimizing environmental impact. We also partner with key manufacturers in the PET space to ensure sustainable production.",
   },
   {
     title: "What kind of support do you offer?",
     content:
-      "We provide 24/7 customer support through multiple channels, including phone, email, and chat. Our team of experts is always ready to help you get the most out of your Lumina device.",
+      "We provide comprehensive support through multiple channels. This includes 24/7 customer service, regular software updates, and access to our companion app where users or caregivers can customize AI Ally behavior, manage trusted contacts, and access advanced settings. We also offer training and onboarding support.",
+  },
+  {
+    title: "How does the voice control system work?",
+    content:
+      "LensX ensures complete accessibility with voice-controlled operations. Users can interact with their AI Allies, make calls, or access features without needing to use their hands. The system uses advanced natural language processing to understand context and intent, making interactions feel natural and intuitive.",
+  },
+  {
+    title: "What makes LensX different from other assistive devices?",
+    content:
+      "LensX goes beyond traditional assistive devices by combining AI Allies, human connection, and sustainability. Our unique approach includes personalized AI companions (Vera, Aria, and Nova), seamless connection with trusted human allies, and eco-friendly design. Additionally, our focus on emotional support and learning assistance creates a comprehensive support system.",
   },
 ];
 
@@ -54,7 +59,7 @@ export function FAQ() {
               Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
             <p className="text-xl text-light/60 max-w-2xl mx-auto">
-              Everything you need to know about Lumina and how it can enhance
+              Learn more about LensX and how our AI-powered glasses can enhance
               your daily life.
             </p>
           </motion.div>
@@ -65,8 +70,9 @@ export function FAQ() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
+            className="mb-16"
           >
-            <Accordion items={faqItems} />
+            <Accordion items={faqItems} defaultOpen={0} />
           </motion.div>
 
           {/* Support Link */}

@@ -5,6 +5,7 @@ import { Hero } from "./components/sections/Hero";
 import { Features } from "./components/sections/Features";
 import { About } from "./components/sections/About";
 import { FAQ } from "./components/sections/FAQ";
+import { Contact } from "./components/sections/Contact";
 import { Footer } from "./components/ui/footer";
 
 export default function Home() {
@@ -16,6 +17,7 @@ export default function Home() {
         <Features />
         <About />
         <FAQ />
+        <Contact />
       </main>
       <Footer />
     </>

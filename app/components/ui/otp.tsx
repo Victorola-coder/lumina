@@ -3,10 +3,9 @@
 import { toast } from "sonner";
 import { useState, useReducer } from "react";
 import { useRouter } from "next/navigation";
-import { Button } from "@/app/components/ui";
 // import { API_URL, API_KEY } from "@/app/constants";
 import { otpReducer, initialOtpState } from "@/app/lib/otp";
-
+import { Button } from "./button";
 export default function OTP() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
@@ -155,7 +154,11 @@ export default function OTP() {
           />
         ))}
       </div>
-      <Button type="submit" loading={loading} disabled={!isOtpValid || loading}>
+      <Button
+        type="submit"
+        disabled={!isOtpValid || loading}
+        isLoading={loading}
+      >
         Verify OTP
       </Button>
     </form>

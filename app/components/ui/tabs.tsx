@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from ".";
+import { Button } from "./button";
 import { useState } from "react";
 
 export default function Tabs({

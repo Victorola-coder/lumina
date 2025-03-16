@@ -9,6 +9,7 @@ interface AccordionItemProps {
   content: string;
   isOpen: boolean;
   onToggle: () => void;
+  index: number;
 }
 
 function AccordionItem({
@@ -16,35 +17,41 @@ function AccordionItem({
   content,
   isOpen,
   onToggle,
+  index,
 }: AccordionItemProps) {
   return (
-    <div className="border-b border-light/10">
+    <div className="border-b border-light/10 last:border-b-0">
       <button
         className={cn(
-          "flex w-full items-center justify-between py-4 text-left transition-colors",
+          "flex w-full items-center justify-between py-5 text-left transition-colors",
           isOpen ? "text-primary" : "text-light hover:text-primary"
         )}
         onClick={onToggle}
+        aria-expanded={isOpen}
+        aria-controls={`accordion-content-${index}`}
       >
         <span className="text-lg font-display">{title}</span>
         <motion.span
+          initial={false}
           animate={{ rotate: isOpen ? 45 : 0 }}
-          transition={{ duration: 0.2 }}
-          className="text-2xl"
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="text-2xl origin-center flex items-center justify-center h-6 w-6"
         >
           +
         </motion.span>
       </button>
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         {isOpen && (
           <motion.div
+            key={`content-${index}`}
+            id={`accordion-content-${index}`}
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.2 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-4 text-light/60 leading-relaxed">{content}</div>
+            <div className="pb-6 text-light/60 leading-relaxed">{content}</div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -57,20 +64,22 @@ interface AccordionProps {
     title: string;
     content: string;
   }>;
+  defaultOpen?: number | null;
 }
 
-export function Accordion({ items }: AccordionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+export function Accordion({ items, defaultOpen = null }: AccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(defaultOpen);
 
   const handleToggle = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <div className="space-y-4">
+    <div className="rounded-lg border border-light/10 divide-y divide-light/10 bg-dark-100/30 backdrop-blur-sm">
       {items.map((item, index) => (
         <AccordionItem
           key={index}
+          index={index}
           title={item.title}
           content={item.content}
           isOpen={openIndex === index}

@@ -45,7 +45,7 @@ export function FAQ() {
       {/* Background Effects */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto pxx-4">
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <motion.div

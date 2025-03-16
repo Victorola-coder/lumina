@@ -1,6 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import { useWaitlistModal } from "@/app/page";
 
 const benefits = [
   {
@@ -48,6 +51,8 @@ const stats = [
 ];
 
 export function About() {
+  const { openModal } = useWaitlistModal();
+
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
@@ -88,6 +93,15 @@ export function About() {
                 environmental impact.
               </p>
             </div>
+
+            <Button
+              size="lg"
+              variant="default"
+              onClick={openModal}
+              className="mt-8"
+            >
+              Join Our Mission
+            </Button>
 
             {/* Stats */}
             <div className="grid grid-cols-3 gap-8 mt-12">

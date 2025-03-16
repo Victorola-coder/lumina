@@ -1,5 +1,9 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { Button } from "../ui/button";
+import { useWaitlistModal } from "@/app/page";
 
 const features = [
   {
@@ -41,6 +45,8 @@ const features = [
 ];
 
 export function Features() {
+  const { openModal } = useWaitlistModal();
+
   return (
     <section id="features" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
@@ -98,6 +104,27 @@ export function Features() {
             </motion.div>
           ))}
         </div>
+
+        {/* CTA Section */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mt-24"
+        >
+          <h3 className="text-2xl md:text-3xl font-display font-medium mb-6">
+            Ready to Experience LensX?
+          </h3>
+          <Button
+            size="lg"
+            variant="default"
+            onClick={openModal}
+            className="px-8"
+          >
+            Join Waitlist
+          </Button>
+        </motion.div>
       </div>
     </section>
   );

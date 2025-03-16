@@ -2,139 +2,192 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button } from "./button";
-import { cn } from "@/app/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "Features", href: "#features" },
-  { name: "About", href: "#about" },
-  { name: "FAQ", href: "#faq" },
-];
+import { Button } from "./button";
+import { useWaitlistModal } from "@/app/page";
 
 export function Navbar() {
-  const [scrolled, setScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { openModal } = useWaitlistModal();
 
+  // Handle scroll event
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 20;
-      if (isScrolled !== scrolled) {
-        setScrolled(isScrolled);
-      }
+      setIsScrolled(window.scrollY > 10);
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [scrolled]);
+  }, []);
 
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  // Close mobile menu on resize
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setIsMobileMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Prevent scrolling when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
-    <AnimatePresence>
-      <motion.nav
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        exit={{ y: -100, opacity: 0 }}
-        className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled
-            ? "bg-dark/80 backdrop-blur-md border-b border-light/10"
-            : "bg-transparent"
-        )}
-      >
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <Link href="/" className="flex items-center space-x-2">
-              <Image
-                src="/logo.svg"
-                alt="Lumina Logo"
-                width={32}
-                height={32}
-                className="w-8 h-8"
-              />
-              <span className="font-display text-xl font-medium">Lumina</span>
-            </Link>
-
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="text-light/80 hover:text-primary transition-colors"
-                >
-                  {link.name}
-                </Link>
-              ))}
+    <motion.header
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.5 }}
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-dark-100/80 backdrop-blur-lg py-4 shadow-lg"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="relative z-10">
+            <div className="flex items-center">
+              <div className="relative w-8 h-8 mr-2">
+                <Image
+                  src="/images/logo.svg"
+                  alt="LensX Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+              <span className="text-xl font-display font-medium">LensX</span>
             </div>
+          </Link>
 
-            {/* CTA Button */}
-            <div className="flex items-center space-x-4">
-              <Button
-                variant="outline"
-                size="default"
-                className="hidden md:inline-flex"
-              >
-                Join Waitlist
-              </Button>
-
-              {/* Mobile Menu Button */}
-              <button className="p-2 md:hidden" onClick={toggleMenu}>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={1.5}
-                  stroke="currentColor"
-                  className="w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        <AnimatePresence>
-          {isMenuOpen && (
-            <motion.div
-              initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: "auto" }}
-              exit={{ opacity: 0, height: 0 }}
-              className="md:hidden bg-dark/95 backdrop-blur-lg"
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-8">
+            <Link
+              href="#features"
+              className="text-light/80 hover:text-primary transition-colors"
             >
-              <div className="flex flex-col gap-4 p-6">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className="text-light/80 hover:text-primary transition-colors py-2"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
+              Features
+            </Link>
+            <Link
+              href="#about"
+              className="text-light/80 hover:text-primary transition-colors"
+            >
+              About
+            </Link>
+            <Link
+              href="#faq"
+              className="text-light/80 hover:text-primary transition-colors"
+            >
+              FAQ
+            </Link>
+            <Link
+              href="#contact"
+              className="text-light/80 hover:text-primary transition-colors"
+            >
+              Contact
+            </Link>
+            <Button variant="default" onClick={openModal}>
+              Join Waitlist
+            </Button>
+          </nav>
+
+          {/* Mobile Menu Button */}
+          <button
+            className="md:hidden relative z-10 text-light"
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-6 flex flex-col justify-center items-center">
+              <span
+                className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "rotate-45 translate-y-0.5"
+                    : "-translate-y-1"
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen ? "opacity-0" : "opacity-100"
+                }`}
+              />
+              <span
+                className={`block w-5 h-0.5 bg-current transition-all duration-300 ${
+                  isMobileMenuOpen
+                    ? "-rotate-45 -translate-y-0.5"
+                    : "translate-y-1"
+                }`}
+              />
+            </div>
+          </button>
+        </div>
+      </div>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "100vh" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="md:hidden fixed inset-0 top-0 z-0 bg-dark-100/95 backdrop-blur-lg"
+          >
+            <div className="flex flex-col items-center justify-center h-full">
+              <nav className="flex flex-col items-center space-y-8 text-xl">
+                <Link
+                  href="#features"
+                  className="text-light/80 hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Features
+                </Link>
+                <Link
+                  href="#about"
+                  className="text-light/80 hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  About
+                </Link>
+                <Link
+                  href="#faq"
+                  className="text-light/80 hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  FAQ
+                </Link>
+                <Link
+                  href="#contact"
+                  className="text-light/80 hover:text-primary transition-colors"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
                 <Button
                   variant="default"
-                  size="default"
-                  onClick={() => setIsMenuOpen(false)}
+                  onClick={() => {
+                    setIsMobileMenuOpen(false);
+                    openModal();
+                  }}
                 >
                   Join Waitlist
                 </Button>
-              </div>
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </motion.nav>
-    </AnimatePresence>
+              </nav>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
   );
 }

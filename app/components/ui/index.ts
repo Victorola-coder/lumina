@@ -11,4 +11,3 @@ export { default as Skeleton } from "./skeleton";
 export { default as ScrollToTop } from "./scroll-to-top";
 export { default as FeatureCard } from "./feature-card";
 export { default as TestimonialCard } from "./testimonial-card";
-export { default as WaitlistModal } from "./waitlist-modal";

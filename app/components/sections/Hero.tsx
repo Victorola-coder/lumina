@@ -1,6 +1,10 @@
+"use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
+import Link from "next/link";
+import { useWaitlistModal } from "@/app/page";
 
 const stats = [
   {
@@ -21,6 +25,8 @@ const stats = [
 ];
 
 export function Hero() {
+  const { openModal } = useWaitlistModal();
+
   return (
     <section className="relative pt-40 pb-32 overflow-hidden">
       {/* Background Effects */}
@@ -46,12 +52,14 @@ export function Hero() {
               provide emotional support for the visually impaired community.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="default">
+              <Button size="lg" variant="default" onClick={openModal}>
                 Pre-order Now
               </Button>
-              <Button size="lg" variant="secondary">
-                Learn More
-              </Button>
+              <Link href="#features">
+                <Button size="lg" variant="secondary">
+                  Learn More
+                </Button>
+              </Link>
             </div>
           </motion.div>
 

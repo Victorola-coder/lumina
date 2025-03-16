@@ -14,6 +14,9 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   // Close modal with escape key
   useEffect(() => {
@@ -33,19 +36,55 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
     };
   }, [isOpen, onClose]);
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Here you would typically send the data to your backend
-    console.log("Submitted:", { name, email });
-    setSubmitted(true);
+  // Reset form state when modal is closed
+  useEffect(() => {
+    if (!isOpen) {
+      // Small delay to ensure animations complete before resetting
+      const timeout = setTimeout(() => {
+        setError(null);
+        setSuccessMessage(null);
+        setSubmitted(false);
+        setName("");
+        setEmail("");
+      }, 300);
 
-    // Reset form after 3 seconds and close modal
-    setTimeout(() => {
-      setSubmitted(false);
-      setName("");
-      setEmail("");
-      onClose();
-    }, 3000);
+      return () => clearTimeout(timeout);
+    }
+  }, [isOpen]);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ name, email }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Something went wrong");
+      }
+
+      setSuccessMessage(data.message);
+      setSubmitted(true);
+
+      // Close modal after delay
+      setTimeout(() => {
+        onClose();
+      }, 3000);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Failed to join waitlist");
+      console.error("Waitlist submission error:", err);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -124,8 +163,8 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       Thank You!
                     </h3>
                     <p className="text-light/60">
-                      You've been added to our waitlist. We'll notify you when
-                      LensX is ready.
+                      {successMessage ||
+                        "You've been added to our waitlist. We'll notify you when LensX is ready."}
                     </p>
                   </div>
                 ) : (
@@ -138,6 +177,12 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         Be the first to experience LensX when it launches.
                       </p>
                     </div>
+
+                    {error && (
+                      <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                        {error}
+                      </div>
+                    )}
 
                     <form
                       onSubmit={handleSubmit}
@@ -158,6 +203,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
                           placeholder="Your name"
                           required
+                          disabled={isLoading}
                         />
                       </div>
 
@@ -176,11 +222,43 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
                           placeholder="your@email.com"
                           required
+                          disabled={isLoading}
                         />
                       </div>
 
-                      <Button type="submit" className="w-full mt-2" size="lg">
-                        Join Waitlist
+                      <Button
+                        type="submit"
+                        className="w-full mt-2"
+                        size="lg"
+                        disabled={isLoading}
+                      >
+                        {isLoading ? (
+                          <span className="flex items-center justify-center">
+                            <svg
+                              className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                            >
+                              <circle
+                                className="opacity-25"
+                                cx="12"
+                                cy="12"
+                                r="10"
+                                stroke="currentColor"
+                                strokeWidth="4"
+                              ></circle>
+                              <path
+                                className="opacity-75"
+                                fill="currentColor"
+                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                              ></path>
+                            </svg>
+                            Processing...
+                          </span>
+                        ) : (
+                          "Join Waitlist"
+                        )}
                       </Button>
 
                       <p className="text-xs text-light/40 text-center mt-4">

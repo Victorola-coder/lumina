@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./button";
-import { useWaitlistModal } from "@/app/page";
+import { useWaitlistModal } from "../../context/waitlist-context";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -51,54 +51,57 @@ export function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-dark-100/80 backdrop-blur-lg py-4 shadow-lg"
-          : "bg-transparent py-6"
+          ? "bg-dark-100/80 backdrop-blur-lg py-3 shadow-lg"
+          : "bg-transparent py-5"
       }`}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="relative z-10">
-            <div className="flex items-center">
-              <div className="relative w-8 h-8 mr-2">
-                <Image
-                  src="/images/logo.svg"
-                  alt="LensX Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
-              <span className="text-xl font-display font-medium">LensX</span>
+          <Link href="/" className="relative z-10 flex items-center">
+            <div className="relative w-8 h-8 mr-2">
+              <Image
+                src="/images/logo.svg"
+                alt="LensX Logo"
+                fill
+                className="object-contain"
+              />
             </div>
+            <span className="text-xl font-display font-medium">LensX</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
               href="#features"
-              className="text-light/80 hover:text-primary transition-colors"
+              className="text-light/80 hover:text-primary transition-colors text-sm"
             >
               Features
             </Link>
             <Link
               href="#about"
-              className="text-light/80 hover:text-primary transition-colors"
+              className="text-light/80 hover:text-primary transition-colors text-sm"
             >
               About
             </Link>
             <Link
               href="#faq"
-              className="text-light/80 hover:text-primary transition-colors"
+              className="text-light/80 hover:text-primary transition-colors text-sm"
             >
               FAQ
             </Link>
             <Link
               href="#contact"
-              className="text-light/80 hover:text-primary transition-colors"
+              className="text-light/80 hover:text-primary transition-colors text-sm"
             >
               Contact
             </Link>
-            <Button variant="default" onClick={openModal}>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={openModal}
+              className="ml-2"
+            >
               Join Waitlist
             </Button>
           </nav>
@@ -175,7 +178,7 @@ export function Navbar() {
                   Contact
                 </Link>
                 <Button
-                  variant="default"
+                  variant="outline"
                   onClick={() => {
                     setIsMobileMenuOpen(false);
                     openModal();

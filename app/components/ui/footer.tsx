@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useWaitlistModal } from "@/app/page";
+import { useWaitlistModal } from "../../context/waitlist-context";
 
 const footerLinks = {
   product: [
@@ -151,7 +151,7 @@ export function Footer() {
               © {new Date().getFullYear()} LensX. All rights reserved.
             </p>
             <p className="text-light/40 text-sm">
-              Designed with ♥ for accessibility
+              Designed with ❤️ by VickyJay
             </p>
           </div>
         </div>

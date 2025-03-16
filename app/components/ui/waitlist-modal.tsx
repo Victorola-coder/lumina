@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "./button";
+import Image from "next/image";
 
 interface WaitlistModalProps {
   isOpen: boolean;
@@ -57,24 +58,37 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-dark/80 backdrop-blur-sm z-50"
+            className="fixed inset-0 bg-dark/90 backdrop-blur-md z-50"
             onClick={onClose}
           />
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ duration: 0.3, type: "spring" }}
-            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.95 }}
+            transition={{ duration: 0.3, type: "spring", bounce: 0.2 }}
+            className="fixed left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-md z-50 px-4 sm:px-0"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="bg-dark-100/90 backdrop-blur-md rounded-2xl border border-light/10 p-8 shadow-xl">
+            <div className="bg-dark-100/80 backdrop-blur-lg rounded-xl border border-light/10 p-8 shadow-2xl">
+              {/* Logo */}
+              <div className="flex justify-center mb-6">
+                <div className="relative w-12 h-12">
+                  <Image
+                    src="/images/logo.svg"
+                    alt="LensX Logo"
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
               {/* Close button */}
               <button
                 onClick={onClose}
                 className="absolute top-4 right-4 text-light/60 hover:text-light transition-colors"
+                aria-label="Close modal"
               >
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +108,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
               {submitted ? (
                 <div className="text-center py-8">
-                  <div className="text-5xl mb-4">🎉</div>
+                  <div className="text-5xl mb-4">✓</div>
                   <h3 className="text-2xl font-display font-medium mb-2">
                     Thank You!
                   </h3>
@@ -105,8 +119,8 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 </div>
               ) : (
                 <>
-                  <div className="text-center mb-6">
-                    <h3 className="text-2xl font-display font-medium mb-2">
+                  <div className="text-center mb-8">
+                    <h3 className="text-2xl font-display font-medium mb-3">
                       Join the <span className="text-gradient">Waitlist</span>
                     </h3>
                     <p className="text-light/60">
@@ -114,7 +128,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     </p>
                   </div>
 
-                  <form onSubmit={handleSubmit} className="space-y-4">
+                  <form onSubmit={handleSubmit} className="space-y-5">
                     <div className="space-y-2">
                       <label
                         htmlFor="name"
@@ -151,7 +165,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       />
                     </div>
 
-                    <Button type="submit" className="w-full" size="lg">
+                    <Button type="submit" className="w-full mt-2" size="lg">
                       Join Waitlist
                     </Button>
 

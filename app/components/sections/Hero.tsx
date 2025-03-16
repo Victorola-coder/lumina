@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Button } from "../ui/button";
 import Link from "next/link";
-import { useWaitlistModal } from "@/app/page";
+import { useWaitlistModal } from "../../context/waitlist-context";
 
 const stats = [
   {

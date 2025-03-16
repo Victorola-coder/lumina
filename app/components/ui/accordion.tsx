@@ -23,7 +23,7 @@ function AccordionItem({
     <div className="border-b border-light/10 last:border-b-0">
       <button
         className={cn(
-          "flex w-full items-center justify-between py-5 text-left transition-colors",
+          "flex w-full items-center justify-between py-5 px-6 text-left transition-colors",
           isOpen ? "text-primary" : "text-light hover:text-primary"
         )}
         onClick={onToggle}
@@ -35,7 +35,7 @@ function AccordionItem({
           initial={false}
           animate={{ rotate: isOpen ? 45 : 0 }}
           transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="text-2xl origin-center flex items-center justify-center h-6 w-6"
+          className="text-2xl origin-center flex items-center justify-center h-6 w-6 ml-4 flex-shrink-0"
         >
           +
         </motion.span>
@@ -51,7 +51,9 @@ function AccordionItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-6 text-light/60 leading-relaxed">{content}</div>
+            <div className="pb-6 px-6 text-light/60 leading-relaxed">
+              {content}
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -75,7 +77,7 @@ export function Accordion({ items, defaultOpen = null }: AccordionProps) {
   };
 
   return (
-    <div className="rounded-lg border border-light/10 divide-y divide-light/10 bg-dark-100/30 backdrop-blur-sm">
+    <div className="rounded-lg border border-light/10 divide-y divide-light/10 bg-dark-100/30 backdrop-blur-sm overflow-hidden">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

@@ -1,45 +1,82 @@
 "use client";
 
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { cn } from "@/app/lib/utils";
 
-interface AccordionProps {
+interface AccordionItemProps {
   title: string;
   content: string;
+  isOpen: boolean;
+  onToggle: () => void;
 }
 
-export default function Accordion({ title, content }: AccordionProps) {
-  const [isOpen, setIsOpen] = useState(false);
-
+function AccordionItem({
+  title,
+  content,
+  isOpen,
+  onToggle,
+}: AccordionItemProps) {
   return (
-    <div className="border border-gray-700 rounded-lg overflow-hidden">
+    <div className="border-b border-light/10">
       <button
-        className="w-full px-6 py-4 flex items-center justify-between text-left"
-        onClick={() => setIsOpen(!isOpen)}
+        className={cn(
+          "flex w-full items-center justify-between py-4 text-left transition-colors",
+          isOpen ? "text-primary" : "text-light hover:text-primary"
+        )}
+        onClick={onToggle}
       >
-        <span className="font-medium">{title}</span>
-        <ChevronDown
-          className={`w-5 h-5 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-        />
+        <span className="text-lg font-display">{title}</span>
+        <motion.span
+          animate={{ rotate: isOpen ? 45 : 0 }}
+          transition={{ duration: 0.2 }}
+          className="text-2xl"
+        >
+          +
+        </motion.span>
       </button>
       <AnimatePresence>
         {isOpen && (
           <motion.div
-            initial={{ height: 0 }}
-            animate={{ height: "auto" }}
-            exit={{ height: 0 }}
-            transition={{ duration: 0.3 }}
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.2 }}
             className="overflow-hidden"
           >
-            <div className="px-6 py-4 text-gray-300 border-t border-gray-700">
-              {content}
-            </div>
+            <div className="pb-4 text-light/60 leading-relaxed">{content}</div>
           </motion.div>
         )}
       </AnimatePresence>
+    </div>
+  );
+}
+
+interface AccordionProps {
+  items: Array<{
+    title: string;
+    content: string;
+  }>;
+}
+
+export function Accordion({ items }: AccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  const handleToggle = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
+  return (
+    <div className="space-y-4">
+      {items.map((item, index) => (
+        <AccordionItem
+          key={index}
+          title={item.title}
+          content={item.content}
+          isOpen={openIndex === index}
+          onToggle={() => handleToggle(index)}
+        />
+      ))}
     </div>
   );
 }

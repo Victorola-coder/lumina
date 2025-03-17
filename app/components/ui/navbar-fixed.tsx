@@ -160,7 +160,7 @@ export function Navbar() {
               variant="outline"
               size="sm"
               onClick={openModal}
-              className="ml-2 bg-dark-100/50 backdrop-blur-sm hover:bg-primary/10 border-light/10 hover:border-primary/30"
+              className="ml-2 bg-dark-100/50 backdrop-blur-sm hover:bg-primary/10 border-light/10 hover:border-primary/30 text-white"
             >
               Join Waitlist
             </Button>

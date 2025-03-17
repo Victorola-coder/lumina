@@ -228,7 +228,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
 
                       <Button
                         type="submit"
-                        className="w-full mt-2"
+                        className="w-full mt-2 text-white"
                         size="lg"
                         disabled={isLoading}
                       >

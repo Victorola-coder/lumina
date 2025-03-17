@@ -8,15 +8,22 @@ export function middleware(request: NextRequest) {
     // Check for basic auth credentials
     const basicAuth = request.headers.get("authorization");
 
+    // Get credentials from environment variables or use defaults for development
+    const adminUser = process.env.ADMIN_USERNAME || "admin";
+    const adminPass = process.env.ADMIN_PASSWORD || "lensx123";
+
     // The expected format is "Basic base64(username:password)"
     if (basicAuth) {
       const authValue = basicAuth.split(" ")[1];
-      const [user, pwd] = atob(authValue).split(":");
+      try {
+        const [user, pwd] = atob(authValue).split(":");
 
-      // Use environment variables in production
-      // For demo purposes, we're using hardcoded credentials
-      if (user === "admin" && pwd === "lensx123") {
-        return NextResponse.next();
+        // Compare with environment variables
+        if (user === adminUser && pwd === adminPass) {
+          return NextResponse.next();
+        }
+      } catch (error) {
+        console.error("Auth parsing error:", error);
       }
     }
 

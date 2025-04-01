@@ -1,6 +1,6 @@
+import { z } from "zod";
 import { NextResponse } from "next/server";
 import { prisma } from "@/app/lib/prisma";
-import { z } from "zod";
 
 // Define validation schema
 const waitlistSchema = z.object({

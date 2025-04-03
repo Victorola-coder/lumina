@@ -3,24 +3,24 @@ import { Accordion } from "../ui/accordion";
 
 const faqItems = [
   {
-    title: "What are LensX AI Allies?",
+    title: "What are Lumina AI Allies?",
     content:
-      "LensX introduces personalized AI Allies that provide real-time assistance through natural voice interactions. Our ecosystem includes Vera (Vision Ally) for real-time guidance and vision support, Aria (Emotional Ally) for emotional support and mental well-being, and Nova (Learning Ally) for educational support. Each AI Ally is designed to become an integral part of users' everyday lives.",
+      "Lumina introduces personalized AI Allies that provide real-time assistance through natural voice interactions. Our ecosystem includes Vera (Vision Ally) for real-time guidance and vision support, Aria (Emotional Ally) for emotional support and mental well-being, and Nova (Learning Ally) for educational support. Each AI Ally is designed to become an integral part of users' everyday lives.",
   },
   {
-    title: "How much does LensX cost?",
+    title: "How much does Lumina cost?",
     content:
-      "LensX Glasses are priced between $490 to $600, depending on the model and features. We also offer a subscription service at $20/month for access to AI Ally features and software updates. We work with healthcare providers and accessibility organizations to provide subsidies for eligible users.",
+      "The Lumina app is available for $25, providing essential AI assistance features through your smartphone. Our advanced Lumina Smart Glasses are priced at $1,000, offering a complete hands-free experience with built-in cameras, bone conduction audio, and all-day battery life. Both options include regular updates and 24/7 support.",
   },
   {
     title: "How does the Trusted Human Allies feature work?",
     content:
-      "LensX enables seamless communication with trusted individuals like family, friends, or caregivers. Users can quickly call or message their trusted allies, share their real-time location, and provide audio context to help allies provide effective assistance when needed.",
+      "Lumina enables seamless communication with trusted individuals like family, friends, or caregivers. Users can quickly call or message their trusted allies, share their real-time location, and provide audio context to help allies provide effective assistance when needed.",
   },
   {
-    title: "Is LensX environmentally friendly?",
+    title: "What makes Lumina different from other assistive devices?",
     content:
-      "Yes, sustainability is a core value of LensX. Our glasses are crafted from recycled PET plastic, making them eco-friendly. The design prioritizes durability and comfort while minimizing environmental impact. We also partner with key manufacturers in the PET space to ensure sustainable production.",
+      "Lumina goes beyond traditional assistive devices by combining cutting-edge AI with intuitive human interaction. Our unique approach includes personalized AI companions (Vera, Aria, and Nova), seamless connection with trusted human allies, and innovative design. Additionally, our focus on emotional support and learning assistance creates a comprehensive support system.",
   },
   {
     title: "What kind of support do you offer?",
@@ -30,12 +30,12 @@ const faqItems = [
   {
     title: "How does the voice control system work?",
     content:
-      "LensX ensures complete accessibility with voice-controlled operations. Users can interact with their AI Allies, make calls, or access features without needing to use their hands. The system uses advanced natural language processing to understand context and intent, making interactions feel natural and intuitive.",
+      "Lumina ensures complete accessibility with voice-controlled operations. Users can interact with their AI Allies, make calls, or access features without needing to use their hands. The system uses advanced natural language processing to understand context and intent, making interactions feel natural and intuitive.",
   },
   {
-    title: "What makes LensX different from other assistive devices?",
+    title: "Is my data secure with Lumina?",
     content:
-      "LensX goes beyond traditional assistive devices by combining AI Allies, human connection, and sustainability. Our unique approach includes personalized AI companions (Vera, Aria, and Nova), seamless connection with trusted human allies, and eco-friendly design. Additionally, our focus on emotional support and learning assistance creates a comprehensive support system.",
+      "Absolutely. Privacy and security are fundamental to Lumina. All processing happens on-device with state-of-the-art encryption, ensuring your data remains private and secure. You have complete control over your information and can manage privacy settings through our app.",
   },
 ];
 
@@ -43,9 +43,9 @@ export function FAQ() {
   return (
     <section id="faq" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-50 via-transparent to-transparent" />
 
-      <div className="container mx-auto pxx-4">
+      <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
           {/* Section Header */}
           <motion.div
@@ -55,11 +55,11 @@ export function FAQ() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-dark-800">
               Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
-            <p className="text-xl text-light/60 max-w-2xl mx-auto">
-              Learn more about LensX and how our AI-powered glasses can enhance
+            <p className="text-xl text-dark-600 max-w-2xl mx-auto">
+              Learn more about Lumina and how our AI-powered glasses can enhance
               your daily life.
             </p>
           </motion.div>
@@ -83,11 +83,11 @@ export function FAQ() {
             transition={{ duration: 0.5, delay: 0.4 }}
             className="text-center mt-16"
           >
-            <p className="text-light/60">
+            <p className="text-dark-600">
               Still have questions?{" "}
               <a
                 href="#contact"
-                className="text-primary hover:text-primary/80 transition-colors"
+                className="text-primary-500 hover:text-primary-600 transition-colors"
               >
                 Contact our support team
               </a>

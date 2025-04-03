@@ -106,7 +106,7 @@ export function Navbar() {
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? "bg-dark-100/90 backdrop-blur-lg py-3 shadow-xl border-b border-light/5"
+          ? "bg-white/90 backdrop-blur-lg py-3 shadow-lg border-b border-light-200"
           : "bg-transparent py-5"
       }`}
     >
@@ -121,13 +121,13 @@ export function Navbar() {
             <div className="relative w-8 h-8 mr-2 transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/images/logo.svg"
-                alt="LensX Logo"
+                alt="Lumina Logo"
                 fill
                 className="object-contain"
               />
             </div>
-            <span className="text-xl font-display font-medium bg-clip-text text-transparent bg-gradient-to-r from-light to-light/90 group-hover:from-primary group-hover:to-primary/80 transition-all duration-300">
-              LensX
+            <span className="text-xl font-display font-medium bg-clip-text text-transparent bg-gradient-to-r from-dark-800 to-dark-600 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+              Lumina
             </span>
           </Link>
 
@@ -140,15 +140,15 @@ export function Navbar() {
                 onClick={(e) => scrollToSection(link.id, e)}
                 className={`relative text-sm font-medium transition-colors duration-300 py-1 ${
                   activeSection === link.id
-                    ? "text-primary"
-                    : "text-light/70 hover:text-light"
+                    ? "text-primary-500"
+                    : "text-dark-500 hover:text-dark-800"
                 }`}
               >
                 {link.label}
                 {activeSection === link.id && (
                   <motion.span
                     layoutId="activeSection"
-                    className="absolute bottom-0 left-0 w-full h-0.5 bg-primary rounded-full"
+                    className="absolute bottom-0 left-0 w-full h-0.5 bg-primary-500 rounded-full"
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.3 }}
@@ -160,7 +160,7 @@ export function Navbar() {
               variant="outline"
               size="sm"
               onClick={openModal}
-              className="ml-2 bg-dark-100/50 backdrop-blur-sm hover:bg-primary/10 border-light/10 hover:border-primary/30 text-white"
+              className="ml-2 bg-white hover:bg-primary-50 border-primary-200 hover:border-primary-300 text-primary-500 hover:text-primary-600"
             >
               Join Waitlist
             </Button>
@@ -168,7 +168,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden relative z-10 text-light p-2 rounded-full hover:bg-light/5 transition-colors"
+            className="md:hidden relative z-10 text-dark-800 p-2 rounded-full hover:bg-light-100 transition-colors"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -205,7 +205,7 @@ export function Navbar() {
             animate={{ opacity: 1, height: "100vh" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden fixed inset-0 top-0 z-0 bg-dark-100/95 backdrop-blur-lg"
+            className="md:hidden fixed inset-0 top-0 z-0 bg-white/95 backdrop-blur-lg"
           >
             <div className="flex flex-col items-center justify-center h-full">
               <nav className="flex flex-col items-center space-y-8 text-xl">
@@ -216,15 +216,15 @@ export function Navbar() {
                     onClick={(e) => scrollToSection(link.id, e)}
                     className={`relative text-xl font-medium transition-colors duration-300 ${
                       activeSection === link.id
-                        ? "text-primary"
-                        : "text-light/70 hover:text-light"
+                        ? "text-primary-500"
+                        : "text-dark-500 hover:text-dark-800"
                     }`}
                   >
                     {link.label}
                     {activeSection === link.id && (
                       <motion.span
                         layoutId="activeMobileSection"
-                        className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary rounded-full"
+                        className="absolute -bottom-2 left-0 w-full h-0.5 bg-primary-500 rounded-full"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ duration: 0.3 }}
@@ -238,7 +238,7 @@ export function Navbar() {
                     setIsMobileMenuOpen(false);
                     openModal();
                   }}
-                  className="mt-4 bg-dark-100/50 backdrop-blur-sm hover:bg-primary/10 border-light/10 hover:border-primary/30"
+                  className="mt-4 bg-white hover:bg-primary-50 border-primary-200 hover:border-primary-300 text-primary-500 hover:text-primary-600"
                 >
                   Join Waitlist
                 </Button>

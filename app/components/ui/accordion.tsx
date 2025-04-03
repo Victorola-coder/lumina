@@ -20,11 +20,11 @@ function AccordionItem({
   index,
 }: AccordionItemProps) {
   return (
-    <div className="border-b border-light/10 last:border-b-0">
+    <div className="border-b border-light-200 last:border-b-0">
       <button
         className={cn(
           "flex w-full items-center justify-between py-5 px-6 text-left transition-colors",
-          isOpen ? "text-primary" : "text-light hover:text-primary"
+          isOpen ? "text-primary-500" : "text-dark-800 hover:text-primary-500"
         )}
         onClick={onToggle}
         aria-expanded={isOpen}
@@ -51,7 +51,7 @@ function AccordionItem({
             transition={{ duration: 0.3, ease: "easeInOut" }}
             className="overflow-hidden"
           >
-            <div className="pb-6 px-6 text-light/60 leading-relaxed">
+            <div className="pb-6 px-6 text-dark-600 leading-relaxed">
               {content}
             </div>
           </motion.div>
@@ -77,7 +77,7 @@ export function Accordion({ items, defaultOpen = null }: AccordionProps) {
   };
 
   return (
-    <div className="rounded-lg border border-light/10 divide-y divide-light/10 bg-dark-100/30 backdrop-blur-sm overflow-hidden">
+    <div className="rounded-lg border border-light-200 divide-y divide-light-200 bg-white shadow-sm overflow-hidden">
       {items.map((item, index) => (
         <AccordionItem
           key={index}

@@ -57,7 +57,7 @@ export function Contact() {
   return (
     <section id="contact" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-50 via-transparent to-transparent" />
 
       <div className="container mx-auto px-4">
         <div className="max-w-3xl mx-auto">
@@ -69,12 +69,12 @@ export function Contact() {
             transition={{ duration: 0.5 }}
             className="text-center mb-16"
           >
-            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-dark-800">
               Get in <span className="text-gradient">Touch</span>
             </h2>
-            <p className="text-xl text-light/60 max-w-2xl mx-auto">
-              Have questions about LensX? We're here to help you on your journey
-              to enhanced vision.
+            <p className="text-xl text-dark-600 max-w-2xl mx-auto">
+              Have questions about Lumina? We're here to help you on your
+              journey to enhanced vision.
             </p>
           </motion.div>
 
@@ -84,7 +84,7 @@ export function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-dark-100/50 backdrop-blur rounded-2xl p-8 border border-light/5"
+            className="bg-white shadow-lg rounded-2xl p-8 border border-light-200"
           >
             {success ? (
               <motion.div
@@ -92,18 +92,18 @@ export function Contact() {
                 animate={{ opacity: 1, y: 0 }}
                 className="text-center py-12"
               >
-                <div className="text-5xl mb-4 text-primary">✓</div>
-                <h3 className="text-2xl font-display font-medium mb-3">
+                <div className="text-5xl mb-4 text-primary-500">✓</div>
+                <h3 className="text-2xl font-display font-medium mb-3 text-dark-800">
                   Message Sent!
                 </h3>
-                <p className="text-light/60 mb-6">
+                <p className="text-dark-600 mb-6">
                   {successMessage ||
                     "Thank you for reaching out. We'll get back to you as soon as possible."}
                 </p>
                 <Button
                   onClick={() => setSuccess(false)}
                   variant="outline"
-                  className="bg-dark-100/50 backdrop-blur-sm hover:bg-primary/10 border-light/10 hover:border-primary/30"
+                  className="bg-white hover:bg-primary-50 border-primary-200 hover:border-primary-300 text-primary-500"
                 >
                   Send Another Message
                 </Button>
@@ -111,7 +111,7 @@ export function Contact() {
             ) : (
               <>
                 {error && (
-                  <div className="mb-6 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                  <div className="mb-6 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
                     {error}
                   </div>
                 )}
@@ -121,7 +121,7 @@ export function Contact() {
                     <div className="space-y-2">
                       <label
                         htmlFor="name"
-                        className="block text-light/80 text-sm"
+                        className="block text-dark-700 text-sm"
                       >
                         Name
                       </label>
@@ -130,7 +130,7 @@ export function Contact() {
                         id="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
+                        className="w-full px-4 py-3 bg-light-50 border border-light-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors"
                         placeholder="Your name"
                         required
                         disabled={isLoading}
@@ -139,7 +139,7 @@ export function Contact() {
                     <div className="space-y-2">
                       <label
                         htmlFor="email"
-                        className="block text-light/80 text-sm"
+                        className="block text-dark-700 text-sm"
                       >
                         Email
                       </label>
@@ -148,7 +148,7 @@ export function Contact() {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
+                        className="w-full px-4 py-3 bg-light-50 border border-light-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors"
                         placeholder="Your email"
                         required
                         disabled={isLoading}
@@ -158,7 +158,7 @@ export function Contact() {
                   <div className="space-y-2">
                     <label
                       htmlFor="message"
-                      className="block text-light/80 text-sm"
+                      className="block text-dark-700 text-sm"
                     >
                       Message
                     </label>
@@ -167,7 +167,7 @@ export function Contact() {
                       rows={5}
                       value={message}
                       onChange={(e) => setMessage(e.target.value)}
-                      className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors resize-none"
+                      className="w-full px-4 py-3 bg-light-50 border border-light-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500/50 transition-colors resize-none"
                       placeholder="Tell us more about your inquiry..."
                       required
                       disabled={isLoading}
@@ -178,7 +178,7 @@ export function Contact() {
                       type="submit"
                       size="lg"
                       variant="default"
-                      className="px-8"
+                      className="px-8 bg-primary-500 hover:bg-primary-600 text-white"
                       disabled={isLoading}
                     >
                       {isLoading ? (
@@ -225,8 +225,10 @@ export function Contact() {
           >
             <div className="p-6">
               <div className="text-2xl mb-4">📍</div>
-              <h3 className="text-lg font-medium mb-2">Address</h3>
-              <p className="text-light/60">
+              <h3 className="text-lg font-medium mb-2 text-dark-800">
+                Address
+              </h3>
+              <p className="text-dark-600">
                 123 Innovation Way
                 <br />
                 San Francisco, CA 94107
@@ -234,8 +236,8 @@ export function Contact() {
             </div>
             <div className="p-6">
               <div className="text-2xl mb-4">📞</div>
-              <h3 className="text-lg font-medium mb-2">Phone</h3>
-              <p className="text-light/60">
+              <h3 className="text-lg font-medium mb-2 text-dark-800">Phone</h3>
+              <p className="text-dark-600">
                 +1 (555) 123-4567
                 <br />
                 Mon-Fri, 9am-6pm PST
@@ -243,11 +245,11 @@ export function Contact() {
             </div>
             <div className="p-6">
               <div className="text-2xl mb-4">✉️</div>
-              <h3 className="text-lg font-medium mb-2">Email</h3>
-              <p className="text-light/60">
-                info@lensx.com
+              <h3 className="text-lg font-medium mb-2 text-dark-800">Email</h3>
+              <p className="text-dark-600">
+                info@lumina.ai
                 <br />
-                support@lensx.com
+                support@lumina.ai
               </p>
             </div>
           </motion.div>

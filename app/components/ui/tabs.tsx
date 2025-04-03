@@ -26,8 +26,8 @@ export default function Tabs({
           onClick={() => handleTabChange(tab.value)}
           className={`${buttonClassName} ${
             activeTab === tab.value
-              ? "bg-white text-black"
-              : "bg-transparent text-white hover:text-white/80"
+              ? "bg-primary-500 text-white"
+              : "bg-white text-dark-600 hover:bg-light-100 border border-light-200"
           }`}
         >
           {tab.label}

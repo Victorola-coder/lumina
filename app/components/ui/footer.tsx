@@ -32,7 +32,7 @@ export function Footer() {
   const { openModal } = useWaitlistModal();
 
   return (
-    <footer className="bg-dark-100/30 backdrop-blur-sm border-t border-light/5 py-16">
+    <footer className="bg-white border-t border-light-200 py-16">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12">
           {/* Brand Column */}
@@ -41,20 +41,22 @@ export function Footer() {
               <div className="relative w-8 h-8">
                 <Image
                   src="/images/logo.svg"
-                  alt="LensX Logo"
+                  alt="Lumina Logo"
                   fill
                   className="object-contain"
                 />
               </div>
-              <span className="font-display text-xl font-medium">LensX</span>
+              <span className="font-display text-xl font-medium text-dark-800">
+                Lumina
+              </span>
             </Link>
-            <p className="text-light/60 max-w-sm mb-6">
+            <p className="text-dark-600 max-w-sm mb-6">
               Empowering visually impaired individuals through innovative AI
-              technology and sustainable design.
+              technology and cutting-edge design.
             </p>
             <button
               onClick={openModal}
-              className="text-primary hover:text-primary/80 transition-colors font-medium"
+              className="text-primary-500 hover:text-primary-600 transition-colors font-medium"
             >
               Join Waitlist →
             </button>
@@ -62,7 +64,7 @@ export function Footer() {
 
           {/* Links Columns */}
           <div className="lg:col-span-2">
-            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-light/80">
+            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-dark-700">
               Product
             </h3>
             <ul className="space-y-3">
@@ -70,7 +72,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-light/60 hover:text-primary transition-colors text-sm"
+                    className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -80,7 +82,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-light/80">
+            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-dark-700">
               Company
             </h3>
             <ul className="space-y-3">
@@ -88,7 +90,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-light/60 hover:text-primary transition-colors text-sm"
+                    className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -98,7 +100,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-light/80">
+            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-dark-700">
               Legal
             </h3>
             <ul className="space-y-3">
@@ -106,7 +108,7 @@ export function Footer() {
                 <li key={link.name}>
                   <Link
                     href={link.href}
-                    className="text-light/60 hover:text-primary transition-colors text-sm"
+                    className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.name}
                   </Link>
@@ -116,7 +118,7 @@ export function Footer() {
           </div>
 
           <div className="lg:col-span-2">
-            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-light/80">
+            <h3 className="font-display text-sm uppercase tracking-wider mb-6 text-dark-700">
               Connect
             </h3>
             <ul className="space-y-3">
@@ -126,7 +128,7 @@ export function Footer() {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-light/60 hover:text-primary transition-colors text-sm"
+                    className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                   >
                     {link.name}
                   </a>
@@ -134,10 +136,10 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:info@lensx.com"
-                  className="text-light/60 hover:text-primary transition-colors text-sm"
+                  href="mailto:info@lumina.ai"
+                  className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                 >
-                  info@lensx.com
+                  info@lumina.ai
                 </a>
               </li>
             </ul>
@@ -145,12 +147,12 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-light/5">
+        <div className="mt-16 pt-8 border-t border-light-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-light/40 text-sm">
-              © {new Date().getFullYear()} LensX. All rights reserved.
+            <p className="text-dark-400 text-sm">
+              © {new Date().getFullYear()} Lumina. All rights reserved.
             </p>
-            <p className="text-light/40 text-sm">
+            <p className="text-dark-400 text-sm">
               Designed with ❤️ by VickyJay
             </p>
           </div>

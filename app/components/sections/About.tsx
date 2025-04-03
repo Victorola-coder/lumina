@@ -45,7 +45,7 @@ const stats = [
   },
   {
     value: "80%",
-    label: "Recycled",
+    label: "Quality",
     description: "Materials Used",
   },
 ];
@@ -56,7 +56,7 @@ export function About() {
   return (
     <section id="about" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-50 via-transparent to-transparent" />
 
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -67,13 +67,13 @@ export function About() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
+            <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-dark-800">
               Empowering Independence Through{" "}
               <span className="text-gradient">Innovation</span>
             </h2>
-            <div className="space-y-6 text-lg text-light/60">
+            <div className="space-y-6 text-lg text-dark-600">
               <p>
-                At LensX, we believe that technology should enhance human
+                At Lumina, we believe that technology should enhance human
                 capabilities while preserving dignity and independence. Our
                 mission is to revolutionize the way visually impaired
                 individuals interact with the world through AI-powered
@@ -87,10 +87,10 @@ export function About() {
                 solution for our users.
               </p>
               <p>
-                We're committed to sustainability and accessibility. By using
-                recycled materials and maintaining affordable pricing, we ensure
-                our technology reaches those who need it most while minimizing
-                environmental impact.
+                We're committed to accessibility and innovation. By leveraging
+                cutting-edge technology and maintaining affordable pricing, we
+                ensure our technology reaches those who need it most while
+                delivering the highest quality experience.
               </p>
             </div>
 
@@ -98,7 +98,7 @@ export function About() {
               size="lg"
               variant="default"
               onClick={openModal}
-              className="mt-8"
+              className="mt-8 bg-primary-500 hover:bg-primary-600 text-white"
             >
               Join Our Mission
             </Button>
@@ -113,11 +113,13 @@ export function About() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                 >
-                  <div className="text-3xl font-display font-medium mb-2">
+                  <div className="text-3xl font-display font-medium mb-2 text-dark-800">
                     {stat.value}
                   </div>
-                  <div className="text-sm text-light/60">
-                    <div className="font-medium text-light">{stat.label}</div>
+                  <div className="text-sm text-dark-500">
+                    <div className="font-medium text-dark-700">
+                      {stat.label}
+                    </div>
                     {stat.description}
                   </div>
                 </motion.div>
@@ -136,15 +138,15 @@ export function About() {
             <div className="relative aspect-square">
               <Image
                 src="/images/about.png"
-                alt="LensX Impact"
+                alt="Lumina Impact"
                 fill
                 className="object-cover rounded-2xl"
               />
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -z-10 -inset-4 bg-primary/5 rounded-2xl blur-xl" />
-            <div className="absolute -z-10 inset-0 bg-gradient-to-r from-primary/10 to-transparent rounded-2xl" />
+            <div className="absolute -z-10 -inset-4 bg-primary-100/50 rounded-2xl blur-xl" />
+            <div className="absolute -z-10 inset-0 bg-gradient-to-r from-primary-50 to-transparent rounded-2xl" />
           </motion.div>
         </div>
       </div>

@@ -97,7 +97,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 bg-dark/90 backdrop-blur-md z-50"
+            className="fixed inset-0 bg-dark-800/50 backdrop-blur-md z-50"
             onClick={onClose}
           />
 
@@ -111,17 +111,17 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
               className="w-full max-w-md mx-auto"
               onClick={(e) => e.stopPropagation()}
             >
-              <div className="bg-dark-100/80 backdrop-blur-lg rounded-xl border border-light/10 p-8 shadow-2xl relative overflow-hidden">
+              <div className="bg-white rounded-xl border border-light-200 p-8 shadow-lg relative overflow-hidden">
                 {/* Decorative elements */}
-                <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary-100 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-primary-50 rounded-full blur-3xl pointer-events-none" />
 
                 {/* Logo */}
                 <div className="flex justify-center mb-6 relative">
                   <div className="relative w-12 h-12">
                     <Image
                       src="/images/logo.svg"
-                      alt="LensX Logo"
+                      alt="Lumina Logo"
                       fill
                       className="object-contain"
                     />
@@ -131,7 +131,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                 {/* Close button */}
                 <button
                   onClick={onClose}
-                  className="absolute top-4 right-4 text-light/60 hover:text-light transition-colors"
+                  className="absolute top-4 right-4 text-dark-400 hover:text-dark-600 transition-colors"
                   aria-label="Close modal"
                 >
                   <svg
@@ -155,31 +155,31 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     <motion.div
                       initial={{ scale: 0.8, opacity: 0 }}
                       animate={{ scale: 1, opacity: 1 }}
-                      className="text-5xl mb-4 text-primary"
+                      className="text-5xl mb-4 text-primary-500"
                     >
                       ✓
                     </motion.div>
-                    <h3 className="text-2xl font-display font-medium mb-2">
+                    <h3 className="text-2xl font-display font-medium mb-2 text-dark-800">
                       Thank You!
                     </h3>
-                    <p className="text-light/60">
+                    <p className="text-dark-500">
                       {successMessage ||
-                        "You've been added to our waitlist. We'll notify you when LensX is ready."}
+                        "You've been added to our waitlist. We'll notify you when Lumina is ready."}
                     </p>
                   </div>
                 ) : (
                   <>
                     <div className="text-center mb-8 relative">
-                      <h3 className="text-2xl font-display font-medium mb-3">
+                      <h3 className="text-2xl font-display font-medium mb-3 text-dark-800">
                         Join the <span className="text-gradient">Waitlist</span>
                       </h3>
-                      <p className="text-light/60">
-                        Be the first to experience LensX when it launches.
+                      <p className="text-dark-500">
+                        Be the first to experience Lumina when it launches.
                       </p>
                     </div>
 
                     {error && (
-                      <div className="mb-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg text-red-400 text-sm">
+                      <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm">
                         {error}
                       </div>
                     )}
@@ -191,7 +191,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                       <div className="space-y-2">
                         <label
                           htmlFor="name"
-                          className="block text-sm text-light/80"
+                          className="block text-sm text-dark-600"
                         >
                           Name
                         </label>
@@ -200,17 +200,16 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           id="name"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
-                          placeholder="Your name"
                           required
-                          disabled={isLoading}
+                          className="w-full px-4 py-2 bg-white border border-light-200 rounded-lg text-dark-800 placeholder-dark-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="Enter your name"
                         />
                       </div>
 
                       <div className="space-y-2">
                         <label
                           htmlFor="email"
-                          className="block text-sm text-light/80"
+                          className="block text-sm text-dark-600"
                         >
                           Email
                         </label>
@@ -219,53 +218,19 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                           id="email"
                           value={email}
                           onChange={(e) => setEmail(e.target.value)}
-                          className="w-full px-4 py-3 bg-dark-100/50 border border-light/10 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary/50 transition-colors"
-                          placeholder="your@email.com"
                           required
-                          disabled={isLoading}
+                          className="w-full px-4 py-2 bg-white border border-light-200 rounded-lg text-dark-800 placeholder-dark-400 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500"
+                          placeholder="Enter your email"
                         />
                       </div>
 
                       <Button
                         type="submit"
-                        className="w-full mt-2 text-white"
-                        size="lg"
+                        className="w-full"
                         disabled={isLoading}
                       >
-                        {isLoading ? (
-                          <span className="flex items-center justify-center">
-                            <svg
-                              className="animate-spin -ml-1 mr-2 h-4 w-4 text-white"
-                              xmlns="http://www.w3.org/2000/svg"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                            >
-                              <circle
-                                className="opacity-25"
-                                cx="12"
-                                cy="12"
-                                r="10"
-                                stroke="currentColor"
-                                strokeWidth="4"
-                              ></circle>
-                              <path
-                                className="opacity-75"
-                                fill="currentColor"
-                                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                              ></path>
-                            </svg>
-                            Processing...
-                          </span>
-                        ) : (
-                          "Join Waitlist"
-                        )}
+                        {isLoading ? "Joining..." : "Join Waitlist"}
                       </Button>
-
-                      <p className="text-xs text-light/40 text-center mt-4">
-                        By joining, you agree to receive updates about LensX. We
-                        respect your privacy and will never share your
-                        information.
-                      </p>
                     </form>
                   </>
                 )}

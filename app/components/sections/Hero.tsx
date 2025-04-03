@@ -30,8 +30,8 @@ export function Hero() {
   return (
     <section className="relative pt-40 pb-32 overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent" />
-      <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-primary/5 to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-100 via-transparent to-transparent" />
+      <div className="absolute inset-y-0 right-0 w-1/3 bg-gradient-to-l from-primary-50 to-transparent" />
 
       <div className="container mx-auto px-4">
         <div className="relative z-10 max-w-3xl">
@@ -42,21 +42,30 @@ export function Hero() {
             transition={{ duration: 0.5 }}
             className="mb-8"
           >
-            <h1 className="text-4xl md:text-6xl font-display font-medium mb-8">
+            <h1 className="text-4xl md:text-6xl font-display font-medium mb-8 text-dark-800">
               Empowering Vision Through{" "}
               <span className="text-gradient">AI Innovation</span>
             </h1>
-            <p className="text-xl text-light/60 mb-8 max-w-2xl">
-              LensX combines cutting-edge AI technology with sustainable design
+            <p className="text-xl text-dark-600 mb-8 max-w-2xl">
+              Lumina combines cutting-edge AI technology with innovative design
               to create intelligent glasses that enhance visual perception and
               provide emotional support for the visually impaired community.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Button size="lg" variant="default" onClick={openModal}>
+              <Button
+                size="lg"
+                variant="default"
+                onClick={openModal}
+                className="bg-primary-500 hover:bg-primary-600 text-white"
+              >
                 Pre-order Now
               </Button>
               <Link href="#features">
-                <Button size="lg" variant="secondary">
+                <Button
+                  size="lg"
+                  variant="secondary"
+                  className="bg-white hover:bg-light-100 text-dark-800 border border-light-300 hover:border-light-400"
+                >
                   Learn More
                 </Button>
               </Link>
@@ -72,11 +81,11 @@ export function Hero() {
           >
             {stats.map((stat, index) => (
               <div key={index} className="text-center md:text-left">
-                <div className="text-4xl font-display font-medium mb-2">
+                <div className="text-4xl font-display font-medium mb-2 text-dark-800">
                   {stat.value}
                 </div>
-                <div className="text-sm text-light/60">
-                  <div className="font-medium text-light">{stat.label}</div>
+                <div className="text-sm text-dark-500">
+                  <div className="font-medium text-dark-700">{stat.label}</div>
                   {stat.description}
                 </div>
               </div>
@@ -94,7 +103,7 @@ export function Hero() {
           <div className="relative w-full h-full">
             <Image
               src="/images/hero.png"
-              alt="LensX AI-Powered Glasses"
+              alt="Lumina AI-Powered Glasses"
               fill
               className="object-contain"
               priority

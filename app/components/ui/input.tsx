@@ -24,8 +24,8 @@ export default function Input({
             {...(props as React.TextareaHTMLAttributes<HTMLTextAreaElement>)}
             placeholder={placeholder}
             className={clsx(
-              "w-full bg-[#283142] p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
-              error && "border-1 border-red-500"
+              "w-full bg-white border border-light-200 p-4 rounded-[12px] text-dark-800 placeholder:text-dark-400 font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500",
+              error && "border-red-500 focus:ring-red-500 focus:border-red-500"
             )}
           />
         ) : (
@@ -35,8 +35,8 @@ export default function Input({
             placeholder={placeholder}
             autoComplete="off"
             className={clsx(
-              "w-full bg-[#283142] h-full p-4 rounded-[12px] text-white placeholder:text-[#FFFFFF80] font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-0",
-              error && "border-1 border-red-500",
+              "w-full bg-white border border-light-200 h-full p-4 rounded-[12px] text-dark-800 placeholder:text-dark-400 font-aloe text-base leading-[22.4px] focus:outline-none focus:ring-1 focus:ring-primary-500 focus:border-primary-500",
+              error && "border-red-500 focus:ring-red-500 focus:border-red-500",
               type === "password" && "pr-12"
             )}
           />
@@ -44,9 +44,9 @@ export default function Input({
         {type === "password" && (
           <span
             onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-[#FFFFFF80] hover:text-white transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-dark-400 hover:text-dark-600 transition-colors cursor-pointer"
           >
-            <EyeIcon fill={showPassword ? "white" : "#FFFFFF80"} />
+            <EyeIcon fill={showPassword ? "#1F2937" : "#9CA3AF"} />
           </span>
         )}
       </div>

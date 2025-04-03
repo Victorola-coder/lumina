@@ -45,13 +45,13 @@ export default function Select({
         type="button"
         onClick={() => setIsOpen(!isOpen)}
         className={clsx(
-          "w-full  px-4 py-3 rounded-[12px] border border-[#FFFFFF29] text-white text-[12px] md:text-base font-medium font-aloeMed gap-2 text-left flex items-center justify-between",
+          "w-full px-4 py-3 rounded-[12px] bg-white border border-light-200 text-dark-800 text-[12px] md:text-base font-medium font-aloeMed gap-2 text-left flex items-center justify-between hover:border-primary-500 transition-colors focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500",
           className
         )}
       >
         <span>{selectedLabel}</span>
         <svg
-          className={`size-3 md:size-4 transition-transform ${
+          className={`size-3 md:size-4 transition-transform text-dark-400 ${
             isOpen ? "rotate-180" : ""
           }`}
           fill="none"
@@ -68,14 +68,16 @@ export default function Select({
       </button>
 
       {isOpen && (
-        <div className="absolute z-10 w-full mt-2 bg-[#283142] rounded-[12px] shadow-lg">
+        <div className="absolute z-10 w-full mt-2 bg-white rounded-[12px] border border-light-200 shadow-lg">
           {options.map((option) => (
             <button
               key={option.value}
               onClick={() => handleSelect(option.value)}
               className={clsx(
-                "w-full px-4 py-3 text-[12px] whitespace-nowrap md:text-base font-medium font-aloeMed text-left hover:bg-[#374151] transition-colors",
-                option.value === selected ? "text-white" : "text-[#FFFFFF80]",
+                "w-full px-4 py-3 text-[12px] whitespace-nowrap md:text-base font-medium font-aloeMed text-left hover:bg-light-100 transition-colors",
+                option.value === selected
+                  ? "text-primary-500"
+                  : "text-dark-600",
                 "first:rounded-t-[12px] last:rounded-b-[12px]"
               )}
             >

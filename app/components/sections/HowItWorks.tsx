@@ -38,7 +38,7 @@ export function HowItWorks() {
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
             How It <span className="text-gradient">Works</span>
           </h2>
-          <p className="text-xl text-dark/60 max-w-2xl mx-auto">
+          <p className="text-xl text-dark-600 max-w-2xl mx-auto">
             Experience the future of assistive technology in just 10 seconds
           </p>
         </motion.div>
@@ -52,13 +52,13 @@ export function HowItWorks() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-light-100/50 backdrop-blur rounded-2xl overflow-hidden p-8 text-center border border-dark/10"
+              className="relative bg-white shadow-lg rounded-2xl overflow-hidden p-8 text-center border border-light-300"
             >
               <div className="text-4xl mb-4">{step.number}</div>
-              <h3 className="text-2xl font-display font-medium mb-4">
+              <h3 className="text-2xl font-display font-medium mb-4 text-dark-800">
                 {step.title}
               </h3>
-              <p className="text-dark/60">{step.description}</p>
+              <p className="text-dark-600">{step.description}</p>
             </motion.div>
           ))}
         </div>

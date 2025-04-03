@@ -56,7 +56,7 @@ export function Pricing() {
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
             Simple, Transparent <span className="text-gradient">Pricing</span>
           </h2>
-          <p className="text-xl text-dark/60 max-w-2xl mx-auto">
+          <p className="text-xl text-dark-600 max-w-2xl mx-auto">
             Choose the solution that best fits your needs
           </p>
         </motion.div>
@@ -70,27 +70,29 @@ export function Pricing() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-light-100/50 backdrop-blur rounded-2xl overflow-hidden p-8 border border-dark/10"
+              className="relative bg-white shadow-lg rounded-2xl overflow-hidden p-8 border border-light-300"
             >
-              <h3 className="text-2xl font-display font-medium mb-2">
+              <h3 className="text-2xl font-display font-medium mb-2 text-dark-800">
                 {plan.name}
               </h3>
               <div className="flex items-baseline mb-4">
-                <span className="text-4xl font-display font-medium">$</span>
-                <span className="text-5xl font-display font-medium">
+                <span className="text-4xl font-display font-medium text-primary-500">
+                  $
+                </span>
+                <span className="text-5xl font-display font-medium text-primary-500">
                   {plan.price}
                 </span>
               </div>
-              <p className="text-dark/60 mb-6">{plan.description}</p>
+              <p className="text-dark-600 mb-6">{plan.description}</p>
 
               <ul className="space-y-3 mb-8">
                 {plan.features.map((feature, featureIndex) => (
                   <li
                     key={featureIndex}
-                    className="flex items-center text-dark/80"
+                    className="flex items-center text-dark-700"
                   >
                     <svg
-                      className="w-5 h-5 text-primary mr-3"
+                      className="w-5 h-5 text-primary-500 mr-3"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -111,7 +113,7 @@ export function Pricing() {
                 size="lg"
                 variant="default"
                 onClick={openModal}
-                className="w-full"
+                className="w-full bg-primary-500 hover:bg-primary-600 text-white"
               >
                 Pre-order Now
               </Button>

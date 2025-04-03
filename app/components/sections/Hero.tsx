@@ -47,7 +47,7 @@ export function Hero() {
               <span className="text-gradient">AI Innovation</span>
             </h1>
             <p className="text-xl text-dark-600 mb-8 max-w-2xl">
-              Lumina combines cutting-edge AI technology with innovative design
+              LensX combines cutting-edge AI technology with innovative design
               to create intelligent glasses that enhance visual perception and
               provide emotional support for the visually impaired community.
             </p>
@@ -103,7 +103,7 @@ export function Hero() {
           <div className="relative w-full h-full">
             <Image
               src="/images/hero.png"
-              alt="Lumina AI-Powered Glasses"
+              alt="LensX AI-Powered Glasses"
               fill
               className="object-contain"
               priority

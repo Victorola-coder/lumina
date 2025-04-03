@@ -6,32 +6,29 @@ import { useWaitlistModal } from "../../context/waitlist-context";
 
 const plans = [
   {
-    name: "Lumina App",
-    price: "25",
-    description:
-      "Experience the power of AI assistance through your smartphone",
+    name: "LensX App",
+    price: "$25",
+    description: "Essential AI assistance through your smartphone",
     features: [
       "Real-time object recognition",
-      "Text reading capabilities",
-      "Face recognition",
-      "Voice navigation",
-      "Emergency contacts",
-      "Regular updates",
+      "Voice commands",
+      "Text-to-speech",
+      "Basic AI assistance",
+      "Community support",
     ],
   },
   {
-    name: "Lumina Smart Glasses",
-    price: "1,000",
-    description:
-      "Complete hands-free experience with our cutting-edge smart glasses",
+    name: "LensX Smart Glasses",
+    price: "$1,000",
+    description: "Complete hands-free experience with advanced features",
     features: [
-      "All Lumina App features",
+      "All LensX App features",
       "Hands-free operation",
       "Built-in cameras",
       "Bone conduction audio",
       "All-day battery life",
-      "Premium carrying case",
-      "1-year warranty",
+      "Premium support",
+      "Regular updates",
     ],
   },
 ];

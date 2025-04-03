@@ -3,24 +3,24 @@ import { Accordion } from "../ui/accordion";
 
 const faqItems = [
   {
-    title: "What are Lumina AI Allies?",
+    title: "What are LensX AI Allies?",
     content:
-      "Lumina introduces personalized AI Allies that provide real-time assistance through natural voice interactions. Our ecosystem includes Vera (Vision Ally) for real-time guidance and vision support, Aria (Emotional Ally) for emotional support and mental well-being, and Nova (Learning Ally) for educational support. Each AI Ally is designed to become an integral part of users' everyday lives.",
+      "LensX introduces personalized AI Allies that provide real-time assistance through natural voice interactions. Our ecosystem includes Vera (Vision Ally) for real-time guidance and vision support, Aria (Emotional Ally) for emotional support and mental well-being, and Nova (Learning Ally) for educational support. Each AI Ally is designed to become an integral part of users' everyday lives.",
   },
   {
-    title: "How much does Lumina cost?",
+    title: "How much does LensX cost?",
     content:
-      "The Lumina app is available for $25, providing essential AI assistance features through your smartphone. Our advanced Lumina Smart Glasses are priced at $1,000, offering a complete hands-free experience with built-in cameras, bone conduction audio, and all-day battery life. Both options include regular updates and 24/7 support.",
+      "The LensX app is available for $25, providing essential AI assistance features through your smartphone. Our advanced LensX Smart Glasses are priced at $1,000, offering a complete hands-free experience with built-in cameras, bone conduction audio, and all-day battery life. Both options include regular updates and 24/7 support.",
   },
   {
     title: "How does the Trusted Human Allies feature work?",
     content:
-      "Lumina enables seamless communication with trusted individuals like family, friends, or caregivers. Users can quickly call or message their trusted allies, share their real-time location, and provide audio context to help allies provide effective assistance when needed.",
+      "LensX enables seamless communication with trusted individuals like family, friends, or caregivers. Users can quickly call or message their trusted allies, share their real-time location, and provide audio context to help allies provide effective assistance when needed.",
   },
   {
-    title: "What makes Lumina different from other assistive devices?",
+    title: "What makes LensX different from other assistive devices?",
     content:
-      "Lumina goes beyond traditional assistive devices by combining cutting-edge AI with intuitive human interaction. Our unique approach includes personalized AI companions (Vera, Aria, and Nova), seamless connection with trusted human allies, and innovative design. Additionally, our focus on emotional support and learning assistance creates a comprehensive support system.",
+      "LensX goes beyond traditional assistive devices by combining cutting-edge AI with intuitive human interaction. Our unique approach includes personalized AI companions (Vera, Aria, and Nova), seamless connection with trusted human allies, and innovative design. Additionally, our focus on emotional support and learning assistance creates a comprehensive support system.",
   },
   {
     title: "What kind of support do you offer?",
@@ -30,12 +30,12 @@ const faqItems = [
   {
     title: "How does the voice control system work?",
     content:
-      "Lumina ensures complete accessibility with voice-controlled operations. Users can interact with their AI Allies, make calls, or access features without needing to use their hands. The system uses advanced natural language processing to understand context and intent, making interactions feel natural and intuitive.",
+      "LensX ensures complete accessibility with voice-controlled operations. Users can interact with their AI Allies, make calls, or access features without needing to use their hands. The system uses advanced natural language processing to understand context and intent, making interactions feel natural and intuitive.",
   },
   {
-    title: "Is my data secure with Lumina?",
+    title: "Is my data secure with LensX?",
     content:
-      "Absolutely. Privacy and security are fundamental to Lumina. All processing happens on-device with state-of-the-art encryption, ensuring your data remains private and secure. You have complete control over your information and can manage privacy settings through our app.",
+      "Absolutely. Privacy and security are fundamental to LensX. All processing happens on-device with state-of-the-art encryption, ensuring your data remains private and secure. You have complete control over your information and can manage privacy settings through our app.",
   },
 ];
 
@@ -59,7 +59,7 @@ export function FAQ() {
               Frequently Asked <span className="text-gradient">Questions</span>
             </h2>
             <p className="text-xl text-dark-600 max-w-2xl mx-auto">
-              Learn more about Lumina and how our AI-powered glasses can enhance
+              Learn more about LensX and how our AI-powered glasses can enhance
               your daily life.
             </p>
           </motion.div>

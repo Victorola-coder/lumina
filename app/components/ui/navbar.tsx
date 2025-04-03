@@ -6,6 +6,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button } from "./button";
 import { useWaitlistModal } from "../../context/waitlist-context";
+import { cn } from "../../lib/utils";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -104,11 +105,12 @@ export function Navbar() {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={cn(
+        "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-lg py-3 shadow-lg border-b border-light-200"
-          : "bg-transparent py-5"
-      }`}
+          ? "bg-white/90 backdrop-blur-lg border-b border-light-200 py-4"
+          : "bg-transparent py-6"
+      )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
@@ -121,13 +123,18 @@ export function Navbar() {
             <div className="relative w-8 h-8 mr-2 transition-transform duration-300 group-hover:scale-110">
               <Image
                 src="/images/logo.svg"
-                alt="Lumina Logo"
+                alt="LensX Logo"
                 fill
                 className="object-contain"
               />
             </div>
-            <span className="text-xl font-display font-medium bg-clip-text text-transparent bg-gradient-to-r from-dark-800 to-dark-600 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
-              Lumina
+            <span
+              className={cn(
+                "font-display text-xl font-medium",
+                isScrolled ? "text-dark-800" : "text-dark-800"
+              )}
+            >
+              LensX
             </span>
           </Link>
 

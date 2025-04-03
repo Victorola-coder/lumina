@@ -73,7 +73,7 @@ export function About() {
             </h2>
             <div className="space-y-6 text-lg text-dark-600">
               <p>
-                At Lumina, we believe that technology should enhance human
+                At LensX, we believe that technology should enhance human
                 capabilities while preserving dignity and independence. Our
                 mission is to revolutionize the way visually impaired
                 individuals interact with the world through AI-powered
@@ -138,7 +138,7 @@ export function About() {
             <div className="relative aspect-square">
               <Image
                 src="/images/about.png"
-                alt="Lumina Impact"
+                alt="LensX Impact"
                 fill
                 className="object-cover rounded-2xl"
               />

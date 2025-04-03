@@ -20,56 +20,68 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://nextapptemplate.xyz"),
   icons: {
-    icon: "/icon.png",
+    icon: "/favicon.ico",
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
+    other: {
+      rel: "apple-touch-icon-precomposed",
+      url: "/apple-touch-icon-precomposed.png",
+    },
   },
-  title: "Lumina - AI-Powered Smart Glasses",
+  title: "LensX - AI-Powered Smart Glasses",
   description:
     "Empowering visually impaired individuals through innovative AI technology.",
-  applicationName: "Lumina",
-  authors: [{ name: "Lumina Team" }],
+  applicationName: "LensX",
+  authors: [{ name: "LensX Team" }],
   keywords: [
-    "AI",
-    "Smart Glasses",
-    "Visual Assistance",
-    "Accessibility",
-    "Technology",
+    "AI glasses",
+    "assistive technology",
+    "visual impairment",
+    "accessibility",
+    "artificial intelligence",
+    "smart glasses",
   ],
-  creator: "Lumina",
-  publisher: "Lumina",
+  creator: "LensX",
+  publisher: "LensX",
   generator: "Next.js",
   referrer: "origin",
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
   },
   openGraph: {
     type: "website",
-    url: "https://lumina.ai",
-    title: "Lumina",
-    siteName: "Lumina",
-    locale: "en_US",
+    url: "https://lensx.com",
+    title: "LensX",
+    siteName: "LensX",
+    description:
+      "Empowering visually impaired individuals through innovative AI technology.",
     images: [
       {
-        url: "https://lumina.ai/opengraph.png",
+        url: "https://lensx.com/opengraph.png",
         width: 1200,
         height: 630,
-        alt: "Lumina OG Image",
+        alt: "LensX OG Image",
       },
     ],
   },
   twitter: {
-    site: "lumina.ai",
-    creator: "@lumnina_ai",
-    title:
-      "Lumina - Empowering visually impaired individuals through innovative AI technology.",
-    description:
-      "Empowering visually impaired individuals through innovative AI technology.",
     card: "summary_large_image",
-    images: ["https://lumina.ai/opengraph.png"],
+    site: "lensx.com",
+    creator: "@LensXAI",
+    description:
+      "LensX - Empowering visually impaired individuals through innovative AI technology.",
+    title:
+      "LensX - AI-Powered Smart Glasses for Enhanced Vision and Independence",
+    images: ["https://lensx.com/opengraph.png"],
   },
   appleWebApp: {
     capable: true,
-    title: "Lumina",
+    title: "LensX",
     statusBarStyle: "black-translucent",
   },
   formatDetection: {

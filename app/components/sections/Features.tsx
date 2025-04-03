@@ -44,25 +44,18 @@ export function Features() {
   return (
     <section id="features" className="py-32 relative overflow-hidden">
       {/* Background Effects */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-transparent to-transparent" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary-50/80 via-white to-white opacity-60" />
 
-      <div className="container mx-auto px-4">
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
-            Meet Your AI <span className="text-gradient">Allies</span>
+      <div className="container mx-auto px-4 relative">
+        <div className="max-w-3xl mx-auto text-center mb-16">
+          <h2 className="text-3xl md:text-5xl font-display font-medium mb-6 text-dark-800">
+            Ready to Experience <span className="text-gradient">LensX</span>?
           </h2>
-          <p className="text-xl text-dark-600 max-w-2xl mx-auto">
-            Experience a new level of independence with our intelligent
-            companions and innovative features.
+          <p className="text-xl text-dark-600">
+            Discover how our AI-powered smart glasses can enhance your daily
+            life.
           </p>
-        </motion.div>
+        </div>
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
@@ -108,7 +101,7 @@ export function Features() {
           className="text-center mt-24"
         >
           <h3 className="text-2xl md:text-3xl font-display font-medium mb-6 text-dark-800">
-            Ready to Experience Lumina?
+            Ready to Experience LensX?
           </h3>
           <Button
             size="lg"

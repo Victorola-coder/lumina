@@ -41,13 +41,13 @@ export function Footer() {
               <div className="relative w-8 h-8">
                 <Image
                   src="/images/logo.svg"
-                  alt="Lumina Logo"
+                  alt="LensX Logo"
                   fill
                   className="object-contain"
                 />
               </div>
               <span className="font-display text-xl font-medium text-dark-800">
-                Lumina
+                LensX
               </span>
             </Link>
             <p className="text-dark-600 max-w-sm mb-6">
@@ -136,10 +136,10 @@ export function Footer() {
               ))}
               <li>
                 <a
-                  href="mailto:info@lumina.ai"
+                  href="mailto:info@lensx.com"
                   className="text-dark-500 hover:text-primary-500 transition-colors text-sm"
                 >
-                  info@lumina.ai
+                  info@lensx.com
                 </a>
               </li>
             </ul>
@@ -150,7 +150,7 @@ export function Footer() {
         <div className="mt-16 pt-8 border-t border-light-200">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-dark-400 text-sm">
-              © {new Date().getFullYear()} Lumina. All rights reserved.
+              © {new Date().getFullYear()} LensX. All rights reserved.
             </p>
             <p className="text-dark-400 text-sm">
               Designed with ❤️ by VickyJay

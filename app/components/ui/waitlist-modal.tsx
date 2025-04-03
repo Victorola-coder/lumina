@@ -121,7 +121,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                   <div className="relative w-12 h-12">
                     <Image
                       src="/images/logo.svg"
-                      alt="Lumina Logo"
+                      alt="LensX Logo"
                       fill
                       className="object-contain"
                     />
@@ -164,7 +164,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     </h3>
                     <p className="text-dark-500">
                       {successMessage ||
-                        "You've been added to our waitlist. We'll notify you when Lumina is ready."}
+                        "You've been added to our waitlist. We'll notify you when LensX is ready."}
                     </p>
                   </div>
                 ) : (
@@ -174,7 +174,7 @@ export function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                         Join the <span className="text-gradient">Waitlist</span>
                       </h3>
                       <p className="text-dark-500">
-                        Be the first to experience Lumina when it launches.
+                        Be the first to experience LensX when it launches.
                       </p>
                     </div>
 

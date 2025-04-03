@@ -73,8 +73,8 @@ export function Contact() {
               Get in <span className="text-gradient">Touch</span>
             </h2>
             <p className="text-xl text-dark-600 max-w-2xl mx-auto">
-              Have questions about Lumina? We're here to help you on your
-              journey to enhanced vision.
+              Have questions about LensX? We're here to help you on your journey
+              to enhanced vision.
             </p>
           </motion.div>
 
@@ -247,9 +247,9 @@ export function Contact() {
               <div className="text-2xl mb-4">✉️</div>
               <h3 className="text-lg font-medium mb-2 text-dark-800">Email</h3>
               <p className="text-dark-600">
-                info@lumina.ai
+                info@lensx.com
                 <br />
-                support@lumina.ai
+                support@lensx.com
               </p>
             </div>
           </motion.div>

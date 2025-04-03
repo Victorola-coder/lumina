@@ -31,12 +31,6 @@ const features = [
     image: "/images/feature-4.png",
   },
   {
-    title: "Sustainable Design",
-    description:
-      "Crafted from recycled PET plastic with a focus on durability and comfort. Our eco-friendly approach ensures both user satisfaction and environmental responsibility.",
-    image: "/images/feature-5.png",
-  },
-  {
     title: "Privacy-First Technology",
     description:
       "All processing happens on-device with state-of-the-art encryption. Your data remains private and secure, giving you complete control over your information.",
@@ -64,7 +58,7 @@ export function Features() {
           <h2 className="text-3xl md:text-5xl font-display font-medium mb-6">
             Meet Your AI <span className="text-gradient">Allies</span>
           </h2>
-          <p className="text-xl text-light/60 max-w-2xl mx-auto">
+          <p className="text-xl text-dark/60 max-w-2xl mx-auto">
             Experience a new level of independence with our intelligent
             companions and innovative features.
           </p>
@@ -79,14 +73,14 @@ export function Features() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="relative bg-dark-100/50 backdrop-blur rounded-2xl overflow-hidden group"
+              className="relative bg-light-100/50 backdrop-blur rounded-2xl overflow-hidden group border border-dark/10"
             >
               {/* Feature Content */}
               <div className="p-8">
                 <h3 className="text-2xl font-display font-medium mb-4">
                   {feature.title}
                 </h3>
-                <p className="text-light/60">{feature.description}</p>
+                <p className="text-dark/60">{feature.description}</p>
               </div>
 
               {/* Feature Image */}
@@ -100,7 +94,7 @@ export function Features() {
               </div>
 
               {/* Hover Effect */}
-              <div className="absolute inset-0 bg-gradient-to-t from-dark to-transparent opacity-60" />
+              <div className="absolute inset-0 bg-gradient-to-t from-light to-transparent opacity-60" />
             </motion.div>
           ))}
         </div>
@@ -114,7 +108,7 @@ export function Features() {
           className="text-center mt-24"
         >
           <h3 className="text-2xl md:text-3xl font-display font-medium mb-6">
-            Ready to Experience LensX?
+            Ready to Experience Lumina?
           </h3>
           <Button
             size="lg"

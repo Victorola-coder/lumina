@@ -96,7 +96,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#0A0A0A" />
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className="min-h-screen bg-dark text-light antialiased">
+      <body className="min-h-screen bg-light text-dark antialiased">
         <main className="relative flex min-h-screen flex-col">{children}</main>
       </body>
     </html>

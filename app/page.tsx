@@ -3,6 +3,8 @@
 import { Navbar } from "./components/ui/navbar-fixed";
 import { Hero } from "./components/sections/Hero";
 import { Features } from "./components/sections/Features";
+import { HowItWorks } from "./components/sections/HowItWorks";
+import { Pricing } from "./components/sections/Pricing";
 import { About } from "./components/sections/About";
 import { FAQ } from "./components/sections/FAQ";
 import { Contact } from "./components/sections/Contact";
@@ -25,11 +27,13 @@ function HomeContent() {
   const { isOpen, closeModal } = useWaitlistModal();
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark text-light">
+    <div className="min-h-screen flex flex-col bg-light text-dark">
       <Navbar />
       <main className="flex-grow">
         <Hero />
+        <HowItWorks />
         <Features />
+        <Pricing />
         <About />
         <FAQ />
         <Contact />

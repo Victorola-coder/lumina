@@ -11,44 +11,44 @@ if (!fs.existsSync(imagesDir)) {
 // Image URLs for our website
 const images = [
   {
-    url: "https://images.unsplash.com/photo-1629196914168-3a2652305f9f?q=80&w=1000&auto=format&fit=crop",
+    url: "https://plus.unsplash.com/premium_photo-1674228288234-8a10453db33e?q=80&w=1000&auto=format&fit=crop",
     filename: "hero.png",
-    description: "Smart glasses for hero section",
+    description: "Smart glasses for hero section - sleek minimal design",
   },
   {
-    url: "https://images.unsplash.com/photo-1626307416562-ee839676f5fc?q=80&w=1000&auto=format&fit=crop",
+    url: "https://plus.unsplash.com/premium_photo-1675797367943-1f569acd7fea?q=80&w=1000&auto=format&fit=crop",
     filename: "feature-1.png",
-    description: "Vision Ally feature image",
+    description: "Vision feature image - minimal aesthetic, technology focus",
   },
   {
-    url: "https://images.unsplash.com/photo-1633613286848-e6f43bbafb8d?q=80&w=1000&auto=format&fit=crop",
+    url: "https://plus.unsplash.com/premium_photo-1683121366070-5ceb7e007a97?q=80&w=1000&auto=format&fit=crop",
     filename: "feature-2.png",
-    description: "Emotional Ally feature image",
+    description: "AI Technology feature image - AR overlay concept",
   },
   {
-    url: "https://images.unsplash.com/photo-1581287053822-fd7bf4f4bfec?q=80&w=1000&auto=format&fit=crop",
+    url: "https://media.istockphoto.com/id/1345642232/photo/voice-recognition-concept.jpg?b=1&s=612x612&w=0&k=20&c=A32RXPwtFSuiO2cHpVJwfEpH0CaEKe1HoFKC0wKgLg4=",
     filename: "feature-3.png",
-    description: "Learning Ally feature image",
+    description: "Voice Interface feature image - minimal tech aesthetic",
   },
   {
-    url: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop",
+    url: "https://media.istockphoto.com/id/1479987936/photo/businessman-touching-the-brain-working-of-artificial-intelligence-automation-predictive.jpg?b=1&s=612x612&w=0&k=20&c=GkAOxzxCQlNbZ6j7PnZyO_MnNIGuxNPP-UBBPqnw2T8=",
     filename: "feature-4.png",
-    description: "Trusted Human Allies feature image",
+    description: "Human Support feature image - elegant professional look",
   },
   {
-    url: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop",
+    url: "https://media.istockphoto.com/id/1297186219/photo/bionic-eye.jpg?b=1&s=612x612&w=0&k=20&c=uWa1akqQV9UYsNX0hWkkz4-9hhJhQWMEF7a4wFmQJrE=",
     filename: "feature-5.png",
-    description: "Sustainable Design feature image",
+    description: "Advanced Technology feature image - minimal tech aesthetic",
   },
   {
-    url: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=1000&auto=format&fit=crop",
+    url: "https://media.istockphoto.com/id/1369824766/photo/cyber-security-concept-closed-padlock-on-digital-background-cybersecurity-blue-abstract-hi.jpg?b=1&s=612x612&w=0&k=20&c=MRg5xzBUCYTvFIZfF1kv7uyQL7_vHKhp0kWjS2NEsu0=",
     filename: "feature-6.png",
-    description: "Privacy-First Technology feature image",
+    description: "Privacy-First Technology feature image - clean aesthetic",
   },
   {
-    url: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=1000&auto=format&fit=crop",
+    url: "https://media.istockphoto.com/id/1455739434/photo/ai-technology-and-robot-development-in-laboratory.jpg?b=1&s=612x612&w=0&k=20&c=dBgkqXyeAXd2_wqwBMqQCeRqNFo59tIkFjjwENNjbsQ=",
     filename: "about.png",
-    description: "About section image",
+    description: "About section image - team working on technology",
   },
 ];
 
